@@ -13,11 +13,29 @@ public class RoomInfo {
 	public String roomName = "";
 	public int roomId = 0;
 	private Map<NetSession,UserInfo> userList;
+	
+	/**
+	 * 默认分配的队伍
+	 */
+	private int allotTeam = 1;
 	public RoomInfo()
 	{
 		userList = new HashMap<NetSession,UserInfo>();
 	}
 	
+	/**
+	 * 分配队伍
+	 * @return
+	 */
+	public int getTeam(){
+		if(allotTeam == 1)
+		{
+			allotTeam = 2;
+		}else{
+			allotTeam = 1;
+		}
+		return allotTeam;
+	}
 	public boolean addUser(NetSession client, UserInfo userInfo)
 	{
 		if(userInfo.roomId == -1)
