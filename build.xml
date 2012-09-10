@@ -14,11 +14,7 @@
 	<!-- Init -->
 	<!-- =================================================================== -->
 	<!-- 在创建前等待60秒，用于Dashboard观察进程--> 
-	<target name="sleep">
-		<echo message="Sleeping for a while so you can see the build in the new dashboard" />
-		<sleep seconds="60" />
-	</target> 
-	<target name="init" depends="sleep">
+	<target name="init">
 		<echo message="-------------------------------------"/>
 		<echo message="start ant build ${project.name} -- ${DSTAMP}${TSTAMP}"/>
 		<property name="debug" value="off"/>
