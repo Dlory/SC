@@ -13,7 +13,6 @@
 	<!-- =================================================================== -->
 	<!-- Init -->
 	<!-- =================================================================== -->
-	<!-- 在创建前等待60秒，用于Dashboard观察进程--> 
 	<target name="init">
 		<echo message="-------------------------------------"/>
 		<echo message="start ant build ${project.name} -- ${DSTAMP}${TSTAMP}"/>
@@ -27,17 +26,43 @@
 		<property name="build.dest" value="build/classes"/>
 		<!-- 打包jar文件路径 -->
 		<property name="build.jar" value="build/jar"/>
+		<!-- jre lib路径 --> 
+		<property name="jre.lib" value="${jdk.home}/jre/lib"/> 
+		<property name="svnant.lib.dir" value="${ant.home}/lib"/>
+		<!-- 引用svn task文件，使用svn任务可以使用--> 
+		<path id="svnant.classpath">
+			<fileset dir="${svnant.lib.dir}">     
+				<include name="**/*.jar" />
+			</fileset>
+		</path>
+		<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath"/>
+		<!-- 设置svn相关属性 --> 
+		<svnSetting id="svn.setting" svnkit="true" username="${svn.uname}" password="${svn.pwd}" javahl="false" /> 
 		<!-- classpath -->
 		<path id="classpath">
+			<fileset dir="${jre.lib}">
+				<include name="**/*.jar"/> 
+			</fileset> 
 			<fileset dir="${lib.dir}">
 				<include name="**/*.jar"/>
 			</fileset>
 		</path>
 	</target>
+	<!-- =================================================================== --> 
+	<!-- checkout --> 
+	<!-- =================================================================== --> 
+	<target name="checkout" depends="init"> 
+		<echo message="-------------------------------------"/> 
+		<echo message="start checkout ${project.name} -- ${DSTAMP}${TSTAMP}"/> 
+		<svn refid="svn.setting"> 
+			<checkout url="${svn.url}" revision="HEAD" destPath="." /> 
+		</svn> 
+	</target> 
+
 	<!-- =================================================================== -->
 	<!-- 编译源文件-->
 	<!-- =================================================================== -->
-	<target name="build" depends="init">
+	<target name="build" depends="checkout">
 		<echo message="-------------------------------------"/>
 		<echo message="start build ${project.name} -- ${DSTAMP}${TSTAMP}"/>
 		<mkdir dir="${build.dest}"/>
