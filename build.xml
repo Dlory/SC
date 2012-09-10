@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<project default="jar" name="${project.name}">
+	<!-- =================================================================== -->
+	<!-- 下句是import进game属性配置文件，properties文件里存放基本的配置变量. -->
+	<!-- 该变量可以在build.xml中直接引用. -->
+	<!-- =================================================================== -->
+	<property file="build.properties"/>
+	<!-- =================================================================== -->
+	<!-- 以下的几个属性是系统自带的,初始了tstamp之后,它们就有值了 -->
+	<!-- ${DSTAMP} ${TSTAMP} ${TODAY} -->
+	<tstamp/>
+	<property name="jar.name" value="${webapp.name}" />
+	<!-- =================================================================== -->
+	<!-- Init -->
+	<!-- =================================================================== -->
+	<!-- 在创建前等待60秒，用于Dashboard观察进程--> 
+	<target name="sleep">
+		<echo message="Sleeping for a while so you can see the build in the new dashboard" />
+		<sleep seconds="60" />
+	</target> 
+	<target name="init" depends="sleep">
+		<echo message="-------------------------------------"/>
+		<echo message="start ant build ${project.name} -- ${DSTAMP}${TSTAMP}"/>
+		<property name="debug" value="off"/>
+		<property name="optimize" value="on"/>
+		<!-- java源文件路径 -->
+		<property name="src.dir" value="src"/>
+		<!-- jar包路径 -->
+		<property name="lib.dir" value="lib"/>
+		<!-- 存放编译的文件路径 -->
+		<property name="build.dest" value="build/classes"/>
+		<!-- 打包jar文件路径 -->
+		<property name="build.jar" value="build/jar"/>
+		<!-- classpath -->
+		<path id="classpath">
+			<fileset dir="${lib.dir}">
+				<include name="**/*.jar"/>
+			</fileset>
+		</path>
+	</target>
+	<!-- =================================================================== -->
+	<!-- 编译源文件-->
+	<!-- =================================================================== -->
+	<target name="build" depends="init">
+		<echo message="-------------------------------------"/>
+		<echo message="start build ${project.name} -- ${DSTAMP}${TSTAMP}"/>
+		<mkdir dir="${build.dest}"/>
+		<delete>
+			<fileset dir="${build.dest}" includes="**/*.*"/>
+		</delete>
+		<javac srcdir="${src.dir}" destdir="${build.dest}" debug="${debug}" optimize="${optimize}" includeantruntime="on">
+			<compilerarg value="-Xlint:unchecked"/>
+			<classpath refid="classpath"/>
+		</javac>
+	</target>
+	<!-- =================================================================== -->
+	<!-- 打jar包-->
+	<!-- =================================================================== -->
+	<target name="jar" depends="build">
+		<echo message="-------------------------------------"/>
+		<echo message="start jar ${project.name} -- ${DSTAMP}${TSTAMP}"/>
+		<mkdir dir="${build.jar}"/>
+		<!--needxmlfile 设为false才不会报错 web.xml不存在 ant会报错-->
+		<jar destfile="${build.jar}/${jar.name}.jar" basedir="${build.dest}"/>
+	</target>
+</project>
