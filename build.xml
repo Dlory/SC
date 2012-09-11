@@ -26,43 +26,17 @@
 		<property name="build.dest" value="build/classes"/>
 		<!-- 打包jar文件路径 -->
 		<property name="build.jar" value="build/jar"/>
-		<!-- jre lib路径 --> 
-		<property name="jre.lib" value="${jdk.home}/jre/lib"/> 
-		<property name="svnant.lib.dir" value="${ant.home}/lib"/>
-		<!-- 引用svn task文件，使用svn任务可以使用--> 
-		<path id="svnant.classpath">
-			<fileset dir="${svnant.lib.dir}">     
-				<include name="**/*.jar" />
-			</fileset>
-		</path>
-		<typedef resource="org/tigris/subversion/svnant/svnantlib.xml" classpathref="svnant.classpath"/>
-		<!-- 设置svn相关属性 --> 
-		<svnSetting id="svn.setting" svnkit="true" username="${svn.uname}" password="${svn.pwd}" javahl="false" /> 
 		<!-- classpath -->
 		<path id="classpath">
-			<fileset dir="${jre.lib}">
-				<include name="**/*.jar"/> 
-			</fileset> 
 			<fileset dir="${lib.dir}">
 				<include name="**/*.jar"/>
 			</fileset>
 		</path>
 	</target>
-	<!-- =================================================================== --> 
-	<!-- checkout --> 
-	<!-- =================================================================== --> 
-	<target name="checkout" depends="init"> 
-		<echo message="-------------------------------------"/> 
-		<echo message="start checkout ${project.name} -- ${DSTAMP}${TSTAMP}"/> 
-		<svn refid="svn.setting"> 
-			<checkout url="${svn.url}" revision="HEAD" destPath="." /> 
-		</svn> 
-	</target> 
-
 	<!-- =================================================================== -->
 	<!-- 编译源文件-->
 	<!-- =================================================================== -->
-	<target name="build" depends="checkout">
+	<target name="build" depends="init">
 		<echo message="-------------------------------------"/>
 		<echo message="start build ${project.name} -- ${DSTAMP}${TSTAMP}"/>
 		<mkdir dir="${build.dest}"/>
@@ -81,7 +55,24 @@
 		<echo message="-------------------------------------"/>
 		<echo message="start jar ${project.name} -- ${DSTAMP}${TSTAMP}"/>
 		<mkdir dir="${build.jar}"/>
+		<!-- create a property containing all .jar files, prefix lib/, and seperated with a space -->
+		<pathconvert property="libs.project" pathsep="" refid="classpath">
+			<mapper>
+				<chainedmapper>
+					<!-- remove absolute path -->
+					<flattenmapper />
+					<!-- add lib/ prefix -->
+					<globmapper from="*" to="lib/*" />
+				</chainedmapper>
+			</mapper>
+		</pathconvert>
 		<!--needxmlfile 设为false才不会报错 web.xml不存在 ant会报错-->
-		<jar destfile="${build.jar}/${jar.name}.jar" basedir="${build.dest}"/>
+		<jar destfile="${build.jar}/${jar.name}.jar" basedir="${build.dest}">
+			<!-- define MANIFEST.MF -->
+			<manifest>
+				<!-- finally, use the magically generated libs path -->
+				<attribute name="Class-Path" value="${libs.project}" />
+			</manifest>
+		</jar>
 	</target>
 </project>
