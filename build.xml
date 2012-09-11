@@ -70,6 +70,12 @@
 		<jar destfile="${build.jar}/${jar.name}.jar" basedir="${build.dest}">
 			<!-- define MANIFEST.MF -->
 			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<section name="${jar.name}">
+					<attribute name="Implementation-Title" value="${component.title}" />
+					<attribute name="Implementation-Version" value="${component.version}" />
+					<attribute name="Implementation-Vendor" value="${component.vendor}" />
+				</section>
 				<!-- finally, use the magically generated libs path -->
 				<attribute name="Class-Path" value="${libs.project}" />
 			</manifest>
