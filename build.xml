@@ -70,7 +70,7 @@
 		<jar destfile="${build.jar}/${jar.name}.jar" basedir="${build.dest}">
 			<!-- define MANIFEST.MF -->
 			<manifest>
-				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Built-By" value="${author.name}" />
 				<section name="${jar.name}">
 					<attribute name="Implementation-Title" value="${component.title}" />
 					<attribute name="Implementation-Version" value="${component.version}" />
