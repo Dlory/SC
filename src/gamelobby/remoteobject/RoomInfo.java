@@ -14,7 +14,7 @@ public class RoomInfo {
 	public int roomId = 0;
 	public int raceType = RoomUtils.RaceType.TUAN_DUI_JING_JI;//比赛类型
 	public int limitNumber = RoomUtils.LimitNumber.NUMBER_2;//比赛最多人数
-	public int accessNumber = 1;//已进入人数
+	public int accessNumber = 0;//已进入人数
 	public String password = "";//进入密码
 	public int status = RoomUtils.RoomStatus.WAIT;//状态
 	private Map<NetSession,UserInfo> userList;
