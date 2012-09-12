@@ -17,7 +17,7 @@ public class RoomInfo {
 	public int accessNumber = 0;//已进入人数
 	public String password = "";//进入密码
 	public int status = RoomUtils.RoomStatus.WAIT;//状态
-	private Map<NetSession,UserInfo> userList;
+	private Map<NetSession,UserInfo> userList;;
 	
 	/**
 	 * 默认分配的队伍
