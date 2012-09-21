@@ -175,5 +175,21 @@ public class RoomUtils {
 		public static final int WAIT = 0;
 		public static final int ALREADY = 1;
 		public static final int START = 2;
+		
+		public static boolean check(int limit) {
+			boolean t = false;
+			switch(limit) {
+				case RoomStatus.WAIT:
+					t = true;
+					break;
+				case RoomStatus.ALREADY:
+					t = true;
+					break;
+				case RoomStatus.START:
+					t = true;
+					break;
+			}
+			return t;
+		}
 	}
 }
