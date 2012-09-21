@@ -1,5 +1,9 @@
 package gamelobby.remoteobject;
 
+import gamelobby.remoteobject.RoomUtils.RulesPeopleType;
+import gamelobby.remoteobject.RoomUtils.RulesTimeType;
+import gamelobby.remoteobject.RoomUtils.RulesType;
+
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -18,6 +22,11 @@ public class RoomInfo {
 	public String password = "";//进入密码
 	public int status = RoomUtils.RoomStatus.WAIT;//状态
 	private Map<NetSession,UserInfo> userList;
+	
+	public int mapType = RoomUtils.MapType.SI_WANG_SHI_ZI;//地图类型
+	public int rules = RulesType.PEOPLE;//胜利规则
+	public int rulesPeople = RulesPeopleType.NUMBER_60;//杀人数(当rules=RulesType.PEOPLE时有用)
+	public int rulesTime = RulesTimeType.NUMBER_5;//游戏时间(当rules=RulesType.TIME时有用)
 	
 	/**
 	 * 默认分配的队伍
