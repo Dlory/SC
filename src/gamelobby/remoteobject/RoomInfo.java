@@ -60,6 +60,7 @@ public class RoomInfo {
 	public void removeUser(NetSession client) {
 		UserInfo userInfo = userList.get(client);
 		userInfo.roomId = -1;
+		userInfo.readyGame = 0;
 		userList.remove(client);
 		accessNumber = userList.size();
 	}
