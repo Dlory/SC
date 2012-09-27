@@ -28,10 +28,6 @@ public class RoomInfo {
 	public int rulesPeople = RulesPeopleType.NUMBER_60;//杀人数(当rules=RulesType.PEOPLE时有用)
 	public int rulesTime = RulesTimeType.NUMBER_5;//游戏时间(当rules=RulesType.TIME时有用)
 	public int createCharacterId = 0;//创建房间的用户角色ID
-	/**
-	 * 默认分配的队伍
-	 */
-	private int allotTeam = 1;
 	public RoomInfo() {
 		userList = new HashMap<NetSession,UserInfo>();
 	}
@@ -41,12 +37,19 @@ public class RoomInfo {
 	 * @return
 	 */
 	public int getTeam(){
-		if(allotTeam == 1) {
-			allotTeam = 2;
-		} else {
-			allotTeam = 1;
+		int oneTeam = 0;
+		int twoTeam = 0;
+		for (Map.Entry<NetSession,UserInfo> entry : userList.entrySet()) {
+			if(entry.getValue().team == 1) {
+				oneTeam++;
+			} else {
+				twoTeam++;
+			}
+    	}
+		if(twoTeam > oneTeam) {
+			return 1;
 		}
-		return allotTeam;
+		return 2;
 	}
 	public boolean addUser(NetSession client, UserInfo userInfo) {
 		if(userInfo.roomId == -1) {
