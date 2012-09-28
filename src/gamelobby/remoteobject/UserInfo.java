@@ -17,5 +17,5 @@ public class UserInfo implements Serializable {
 	public int isadult = 0;
 	public String username = "";
 	public String loginToken = "";
-	public NetSession client = null;
+	//public NetSession client = null;
 }
