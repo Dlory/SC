@@ -28,6 +28,7 @@ public class RoomInfo {
 	public int rulesPeople = RulesPeopleType.NUMBER_60;//杀人数(当rules=RulesType.PEOPLE时有用)
 	public int rulesTime = RulesTimeType.NUMBER_5;//游戏时间(当rules=RulesType.TIME时有用)
 	public int createCharacterId = 0;//创建房间的用户角色ID
+	public String createCharName = "";//创建房间的用户角色名
 	public RoomInfo() {
 		userList = new HashMap<NetSession,UserInfo>();
 	}
