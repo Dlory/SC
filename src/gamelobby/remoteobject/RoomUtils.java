@@ -76,7 +76,7 @@ public class RoomUtils {
 	 *
 	 */
 	public static final class MapType{
-		public static final int SI_WANG_SHI_ZI = 0;
+		public static final int SI_WANG_SHI_ZI = 4;
 		
 		public static boolean check(int type) {
 			boolean t = false;

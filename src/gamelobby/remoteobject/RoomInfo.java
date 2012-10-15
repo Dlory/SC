@@ -4,6 +4,7 @@ import gamelobby.remoteobject.RoomUtils.RulesPeopleType;
 import gamelobby.remoteobject.RoomUtils.RulesTimeType;
 import gamelobby.remoteobject.RoomUtils.RulesType;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -12,11 +13,10 @@ import java.util.Set;
 import common.net.NetSession;
 
 
-public class RoomInfo {
+public class RoomInfo implements Serializable  {
 
 	public String roomName = "";
 	public int roomId = 0;
-	public int sceneId = 0;
 	public int raceType = RoomUtils.RaceType.TUAN_DUI_JING_JI;//比赛类型
 	public int limitNumber = RoomUtils.LimitNumber.NUMBER_2;//比赛最多人数
 	public int accessNumber = 0;//已进入人数
