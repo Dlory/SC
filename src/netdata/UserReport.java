@@ -1,6 +1,8 @@
 package netdata;
 
-public class UserReport {
+import java.io.Serializable;
+
+public class UserReport implements Serializable {
 	public int characterId = 0;
 	public int killNum = 0;
 	public int beKillNum = 0;
