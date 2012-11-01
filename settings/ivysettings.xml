@@ -1,5 +1,5 @@
 <ivysettings>
-	<settings defaultResolver="main" checkUpToDate="true" defaultConflictManager="latest-revision"/>
+	<settings defaultResolver="main"/>
 	<properties file="./settings.properties" />
 	<include file="ivysettings-nexus.xml" />
 	<include file="ivysettings-main-chain.xml" />
