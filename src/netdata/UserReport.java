@@ -8,4 +8,8 @@ public class UserReport implements Serializable {
 	public int team = 0;
 	public int killNum = 0;
 	public int beKillNum = 0;
+	public int headKill = 0;
+	public int wallKill = 0;
+	public int knifeKill = 0;
+	public int grenadeKill = 0;
 }
