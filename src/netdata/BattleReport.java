@@ -9,13 +9,13 @@ public class BattleReport implements Serializable {
 	 */
 	public int winTeam = 0;
 	/**
-	 * 土匪杀敌数
+	 * 土匪得分
 	 */
-	public int team1killNum = 0;
+	public int team1Score = 0;
 	/**
-	 * 警察杀敌数
+	 * 警察得分
 	 */
-	public int team2killNum = 0;
+	public int team2Score = 0;
 	/**
 	 * 玩家个人战报
 	 */
