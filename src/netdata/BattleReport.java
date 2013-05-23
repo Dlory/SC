@@ -16,6 +16,8 @@ public class BattleReport implements Serializable {
 	 * 警察得分
 	 */
 	public int team2Score = 0;
+	public int mvpCharacterId;
+	public int lastKillCharacterId;
 	/**
 	 * 玩家个人战报
 	 */
