@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class BattleReport implements Serializable {
 	public int roomId = 0;
+	public RoomData roomData;
 	/**
 	 * 胜利队伍 1标识土匪胜利 2标识警察胜利 0 表示无胜负
 	 */
@@ -17,6 +18,8 @@ public class BattleReport implements Serializable {
 	 */
 	public int team2Score = 0;
 	public int mvpCharacterId;
+	public String mvpName;
+	public String lastKillName;
 	public int lastKillCharacterId;
 	/**
 	 * 玩家个人战报
