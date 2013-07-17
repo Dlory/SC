@@ -5,24 +5,20 @@ import java.io.Serializable;
 public class BattleReport implements Serializable {
 	public int roomId = 0;
 	public RoomData roomData;
-	/**
-	 * Ê¤Àû¶ÓÎé 1±êÊ¶ÍÁ·ËÊ¤Àû 2±êÊ¶¾¯²ìÊ¤Àû 0 ±íÊ¾ÎŞÊ¤¸º
-	 */
+
 	public int winTeam = 0;
-	/**
-	 * ÍÁ·ËµÃ·Ö
-	 */
 	public int team1Score = 0;
-	/**
-	 * ¾¯²ìµÃ·Ö
-	 */
 	public int team2Score = 0;
+	
+	public int totalNum = 0; // æ€»å‚åŠ äººæ•° è¶…è¿‡3åˆ†é’Ÿç®—
+	
 	public int mvpCharacterId;
-	public String mvpName;
-	public String lastKillName;
+//	public String mvpName;
+	public int firstKillCharacterId;
+//	public String firstKillName;
 	public int lastKillCharacterId;
-	/**
-	 * Íæ¼Ò¸öÈËÕ½±¨
-	 */
+//	public String lastKillName;
+	
+
 	public UserReport[] userReportList;
 }
