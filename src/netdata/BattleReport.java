@@ -12,6 +12,8 @@ public class BattleReport implements Serializable {
 	
 	public int totalNum = 0; // 总参加人数 超过3分钟算
 	
+	public int aceCharacterId;
+	public String aceName;
 	public int mvpCharacterId;
 	public String mvpName;
 	public int firstKillCharacterId;
