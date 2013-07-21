@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class UserReport implements Serializable {
 	public int characterId = 0;
-	public String playerName;
+	public String playerName = "";
 	public int team = 0;
 	public int killNum = 0;
 	public int beKillNum = 0;
@@ -12,8 +12,16 @@ public class UserReport implements Serializable {
 	public int wallKill = 0;
 	public int knifeKill = 0;
 	public int grenadeKill = 0;
-	
+
 	public int hidePackNum = 0; // 埋包次数
 	public int openPackNum = 0; // 拆包次数
-	
+
+	// 以下字段占位 房间服务器会赋值
+	public int lv = 0;
+	public int title = 0; // 位来表示战斗中获得的头衔
+	public long baseExp = 0; // 基础经验
+	public long addExp = 0; // 经验加成
+	public int gp = 0;
+	public boolean result = false;
+
 }
