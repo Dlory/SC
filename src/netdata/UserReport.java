@@ -19,7 +19,7 @@ public class UserReport implements Serializable {
 
 	// 以下字段占位 房间服务器会赋值
 	public int lv = 0;
-	public int title = 0; // 位来表示战斗中获得的头衔
+//	public int title = 0; // 位来表示战斗中获得的头衔
 	public long baseExp = 0; // 基础经验
 	public long addExp = 0; // 经验加成
 	public int gp = 0;

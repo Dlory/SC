@@ -21,6 +21,9 @@ public class BattleReport implements Serializable {
 	public int lastKillCharacterId;
 	public String lastKillName;
 	
+	public int maxHidePackCharacterId;
+	public int maxOpenPackCharacterId;
+	
 
 	public UserReport[] userReportList;
 }
