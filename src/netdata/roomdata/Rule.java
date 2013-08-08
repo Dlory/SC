@@ -5,4 +5,5 @@ public class Rule {
 	public static final int GROUP = 3;
 	public static final int SPECIAL_GROUP = 4;
 	public static final int PERSONAL = 5;
+	public static final int BIOCHEMICAL = 6;
 }
