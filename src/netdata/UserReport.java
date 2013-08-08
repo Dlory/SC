@@ -16,6 +16,8 @@ public class UserReport implements Serializable {
 	public int hidePackNum = 0; // 埋包次数
 	public int openPackNum = 0; // 拆包次数
 	public int duration = 0; // s 游戏时长
+	
+	public int[] bagUsed = null; // 每个背包的使用时间 index from 0
 
 	// 以下字段占位 房间服务器会赋值
 	public int lv = 0;
