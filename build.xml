@@ -49,6 +49,9 @@
 			<compilerarg value="-Xlint:unchecked"/>
 			<classpath refid="classpath"/>
 		</javac>
+		<copy todir="${build.dest}">
+			<fileset dir="${src.dir}"/>
+		</copy>
 	</target>
 	<!-- =================================================================== -->
 	<!-- 打jar包-->
