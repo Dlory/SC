@@ -15,6 +15,8 @@ public class UserData implements Serializable {
 	public String username = "";
 	public String loginToken = "";
 	public String[] bagArray = null;
+	public int avatarId = 1;//角色ID
+	public int avatarSH = 0;//生化的角色ID
 }
 
 
