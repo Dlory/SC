@@ -10,11 +10,13 @@ public class UserData implements Serializable {
 	public int team = 1;
 	public boolean inGameServer = false;
 	public int roomId = -1;
-	public int readyGame = 0;//����״̬(0Ϊδ׼����1Ϊ׼��)
+	public int readyGame = 0;//锟斤拷锟斤拷状态(0为未准锟斤拷锟斤拷1为准锟斤拷)
 	public int isadult = 0;
 	public String username = "";
 	public String loginToken = "";
 	public String[] bagArray = null;
+	public int avatarId = 1;//角色ID
+	public int avatarSH = 0;//生化的角色ID
 	public int dId = 0; // 区号
 }
 
