@@ -49,9 +49,6 @@
 			<compilerarg value="-Xlint:unchecked"/>
 			<classpath refid="classpath"/>
 		</javac>
-		<copy todir="${build.dest}">
-			<fileset dir="${src.dir}"/>
-		</copy>
 	</target>
 	<!-- =================================================================== -->
 	<!-- 打jar包-->
@@ -61,7 +58,7 @@
 		<echo message="start jar ${project.name} -- ${DSTAMP}${TSTAMP}"/>
 		<mkdir dir="${build.jar}"/>
 		<!-- create a property containing all .jar files, prefix lib/, and seperated with a space -->
-		<pathconvert property="libs.project" pathsep=" " refid="classpath">
+		<pathconvert property="libs.project" pathsep="" refid="classpath">
 			<mapper>
 				<chainedmapper>
 					<!-- remove absolute path -->
@@ -76,9 +73,11 @@
 			<!-- define MANIFEST.MF -->
 			<manifest>
 				<attribute name="Built-By" value="${author.name}" />
-				<attribute name="Implementation-Title" value="${component.title}" />
-				<attribute name="Implementation-Version" value="${component.version}" />
-				<attribute name="Implementation-Vendor" value="${component.vendor}" />
+				<section name="${jar.name}">
+					<attribute name="Implementation-Title" value="${component.title}" />
+					<attribute name="Implementation-Version" value="${component.version}" />
+					<attribute name="Implementation-Vendor" value="${component.vendor}" />
+				</section>
 				<!-- finally, use the magically generated libs path -->
 				<attribute name="Class-Path" value="${libs.project}" />
 			</manifest>
