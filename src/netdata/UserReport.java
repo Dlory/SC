@@ -26,5 +26,11 @@ public class UserReport implements Serializable {
 	public long addExp = 0; // 经验加成
 	public int gp = 0;
 	public boolean result = false;
-
+	
+	public int moreLianSha = 0;//最高连杀数
+	public int fireNum = 0;//开火次数
+	public int hitNum = 0;//命中次数
+	public int assistsNum = 0;//助攻次数
+	public int hidePackSucNum = 0;//埋包成功次数
+	public int openPackSucNum = 0;//拆包成功次数
 }

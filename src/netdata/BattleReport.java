@@ -26,4 +26,7 @@ public class BattleReport implements Serializable {
 	
 
 	public UserReport[] userReportList;
+	
+	public int ace2CharacterId;//ace第二名
+	public int ace3CharacterId;//ace第三名
 }
