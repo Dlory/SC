@@ -15,6 +15,7 @@ public class UserData implements Serializable {
 	public String username = "";
 	public String loginToken = "";
 	public String[] bagArray = null;
+	public int dId = 0; // 区号
 }
 
 
