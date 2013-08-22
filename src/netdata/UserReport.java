@@ -33,4 +33,5 @@ public class UserReport implements Serializable {
 	public int assistsNum = 0;//助攻次数
 	public int hidePackSucNum = 0;//埋包成功次数
 	public int openPackSucNum = 0;//拆包成功次数
+	public int roundNum = 0;//爆破模式的回合数
 }
