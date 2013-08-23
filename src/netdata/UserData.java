@@ -18,6 +18,7 @@ public class UserData implements Serializable {
 	public int avatarId = 1;//角色ID
 	public int avatarSH = 0;//生化的角色ID
 	public int dId = 0; // 区号
+	public RankUserBean rankBean = null;
 }
 
 
