@@ -3,6 +3,7 @@ package netdata;
 import java.io.Serializable;
 
 public class UserReport implements Serializable {
+	public int dId = 0; // 区号
 	public int characterId = 0;
 	public String playerName = "";
 	public int team = 0;
@@ -16,16 +17,20 @@ public class UserReport implements Serializable {
 	public int hidePackNum = 0; // 埋包次数
 	public int openPackNum = 0; // 拆包次数
 	public int duration = 0; // s 游戏时长
-	
+
 	public int[] bagUsed = null; // 每个背包的使用时间 index from 0
+	public int lianShaAdded = 0; // 连杀加成
+	public int aliveNum = 0; // 总存活次数
+//	public RankUserBean rankBean = null;
 
 	// 以下字段占位 房间服务器会赋值
 	public int lv = 0;
-//	public int title = 0; // 位来表示战斗中获得的头衔
+	// public int title = 0; // 位来表示战斗中获得的头衔
 	public long baseExp = 0; // 基础经验
 	public long addExp = 0; // 经验加成
 	public int gp = 0;
 	public boolean result = false;
+
 	
 	public int moreLianSha = 0;//最高连杀数
 	public int fireNum = 0;//开火次数
@@ -34,4 +39,5 @@ public class UserReport implements Serializable {
 	public int hidePackSucNum = 0;//埋包成功次数
 	public int openPackSucNum = 0;//拆包成功次数
 	public int roundNum = 0;//爆破模式的回合数
+	public double personalPerf = 0;// 个人表现
 }
