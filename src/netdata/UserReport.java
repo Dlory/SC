@@ -19,7 +19,7 @@ public class UserReport implements Serializable {
 	public int duration = 0; // s 游戏时长
 
 	public int[] bagUsed = null; // 每个背包的使用时间 index from 0
-	public int lianShaAdded = 0; // 连杀加成
+	public float lianShaAdded = 0; // 连杀加成
 	public int aliveNum = 0; // 总存活次数
 //	public RankUserBean rankBean = null;
 
