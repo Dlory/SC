@@ -11,4 +11,5 @@ public class RoomData implements Serializable {
 	public int subRaceType = 0;//子模式，刀战、手枪战、雷战等;
 	public int sectionTime = 0;
 	public int reLiveTime = 3;//复活时间(秒数)
+	public int createTime = 0;
 }
