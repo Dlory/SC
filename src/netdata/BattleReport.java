@@ -9,24 +9,23 @@ public class BattleReport implements Serializable {
 	public int winTeam = 0;
 	public int team1Score = 0;
 	public int team2Score = 0;
-	
+
 	public int totalNum = 0; // 总参加人数 超过3分钟算
-	
-	public int aceCharacterId;
+
+	public long aceCharacterId;
 	public String aceName;
-	public int mvpCharacterId;
+	public long mvpCharacterId;
 	public String mvpName;
-	public int firstKillCharacterId;
+	public long firstKillCharacterId;
 	public String firstKillName;
-	public int lastKillCharacterId;
+	public long lastKillCharacterId;
 	public String lastKillName;
-	
-	public int maxHidePackCharacterId;
-	public int maxOpenPackCharacterId;
-	
+
+	public long maxHidePackCharacterId;
+	public long maxOpenPackCharacterId;
 
 	public UserReport[] userReportList;
-	
-	public int ace2CharacterId;//ace第二名
-	public int ace3CharacterId;//ace第三名
+
+	public long ace2CharacterId;// ace第二名
+	public long ace3CharacterId;// ace第三名
 }
