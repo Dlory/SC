@@ -6,7 +6,7 @@ public class UserData implements Serializable {
 	public String playerName = "";
 	public String career = "";
 	public int userId = 0;
-	public int characterId = 0;
+	public long characterId = 0;
 	public int team = 1;
 	public boolean inGameServer = false;
 	public int roomId = -1;
