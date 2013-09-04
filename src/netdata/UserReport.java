@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class UserReport implements Serializable {
 	public int dId = 0; // 区号
-	public int characterId = 0;
+	public long characterId = 0;
 	public String playerName = "";
 	public int team = 0;
 	public int killNum = 0;

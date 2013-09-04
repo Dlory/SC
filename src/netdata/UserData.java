@@ -6,7 +6,7 @@ public class UserData implements Serializable {
 	public String playerName = "";
 	public String career = "";
 	public int userId = 0;
-	public int characterId = 0;
+	public long characterId = 0;
 	public int team = 1;
 	public boolean inGameServer = false;
 	public int roomId = -1;
@@ -18,7 +18,6 @@ public class UserData implements Serializable {
 	public int avatarId = 1;//角色ID
 	public int avatarSH = 0;//生化的角色ID
 	public int dId = 0; // 区号
-	public long gCid = 0;
 	public boolean armorBody = false; // 避弹衣
 	public boolean armorHead = false; // 避弹头盔
 }
