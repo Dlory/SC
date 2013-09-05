@@ -7,6 +7,7 @@ public class UserReport implements Serializable {
 	public long characterId = 0;
 	public String playerName = "";
 	public int team = 0;
+	public int runNum = 0; // 逃跑次数
 	public int killNum = 0;
 	public int beKillNum = 0;
 	public int headKill = 0;
