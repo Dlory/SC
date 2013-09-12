@@ -20,6 +20,7 @@ public class UserData implements Serializable {
 	public int dId = 0; // 区号
 	public boolean armorBody = false; // 避弹衣
 	public boolean armorHead = false; // 避弹头盔
+	public boolean enterBattleFlag = false;//是否进入过战斗
 }
 
 
