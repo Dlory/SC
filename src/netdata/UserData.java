@@ -22,6 +22,13 @@ public class UserData implements Serializable {
 	public boolean armorHead = false; // 避弹头盔
 	public boolean c4Flag = false; // C4工具钳
 	public boolean enterBattleFlag = false;//是否进入过战斗
+	
+	public double killEfficiency = 0;//击杀效率,战斗力
+	public double aliveEfficiency = 0;//生存效率,生存力
+	public double kd = 0;//k/d
+	public double headKillEfficiency = 0;//爆头率
+	
+	public boolean biochemicalSerum = false;//生化血清
 }
 
 
