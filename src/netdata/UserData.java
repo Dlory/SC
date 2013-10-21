@@ -29,6 +29,20 @@ public class UserData implements Serializable {
 	public double headKillEfficiency = 0;//爆头率
 	
 	public boolean biochemicalSerum = false;//生化血清
+	
+	/**
+	 * 自由竞技等级
+	 */
+	public int lv = 1;
+	/**
+	 * 个人联赛段位
+	 * 1-青铜，2-白银，3-黄金，4-铂金，5钻石，6王者
+	 */
+	public int raceRankSect = 0;
+	/**
+	 * 个人联赛段位等级
+	 */
+	public int raceRankLv = 1;
 }
 
 
