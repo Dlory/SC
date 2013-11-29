@@ -43,6 +43,10 @@ public class UserData implements Serializable {
 	 * 个人联赛段位等级
 	 */
 	public int raceRankLv = 1;
+	/**
+	 * 新手引导 -1 表示完成引导
+	 */
+	public int newbieGuide = -1;
 }
 
 
