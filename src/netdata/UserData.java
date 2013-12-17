@@ -51,6 +51,8 @@ public class UserData implements Serializable {
 	 * 战队名字
 	 */
 	public String teamName = "";
+	
+	public int teamId = 0;
 }
 
 
