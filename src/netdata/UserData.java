@@ -47,6 +47,10 @@ public class UserData implements Serializable {
 	 * 新手引导 -1 表示完成引导
 	 */
 	public int newbieGuide = -1;
+	/**
+	 * 战队名字
+	 */
+	public String teamName = "";
 }
 
 
