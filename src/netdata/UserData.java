@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 public class UserData implements Serializable {
 	public String playerName = "";
-	public String career = "";
+	public String team1Career = "";
+	public String team2Career = "";
 	public int userId = 0;
 	public long characterId = 0;
 	public int team = 1;
