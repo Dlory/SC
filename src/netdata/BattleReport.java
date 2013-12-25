@@ -1,6 +1,7 @@
 package netdata;
 
 import java.io.Serializable;
+import java.util.TreeMap;
 
 public class BattleReport implements Serializable {
 	public int roomId = 0;
@@ -28,4 +29,7 @@ public class BattleReport implements Serializable {
 
 	public long ace2CharacterId;// ace第二名
 	public long ace3CharacterId;// ace第三名
+	
+	public TreeMap<Integer/*teamId*/,String/*teamName*/> battleTeamList = new  TreeMap<Integer/*teamId*/,String/*teamName*/>();//对战战队
+	public int winbattleTeamId = 0;//胜利一方的战队ID
 }
