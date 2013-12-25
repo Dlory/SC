@@ -13,4 +13,5 @@ public class RoomData implements Serializable {
 	public int reLiveTime = 3;//复活时间(秒数)
 	public int createTime = 0;
 	public boolean changeTeam = false;//爆破模式 半场换边
+	public int playerNum = 0;//人数，当前模型下满人个数
 }
