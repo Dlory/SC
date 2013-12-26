@@ -1,6 +1,7 @@
 package netdata;
 
 import java.io.Serializable;
+import java.util.TreeMap;
 
 public class RoomData implements Serializable {
 	public int roomId = 0;
@@ -15,4 +16,5 @@ public class RoomData implements Serializable {
 	public boolean changeTeam = false;//爆破模式 半场换边
 	public int playerNum = 0;//人数，当前模型下满人个数
 	public boolean isPromise = false;
+	public TreeMap<Integer/*teamId*/,String/*teamName*/> battleTeamList = new  TreeMap<Integer/*teamId*/,String/*teamName*/>();//对战战队
 }
