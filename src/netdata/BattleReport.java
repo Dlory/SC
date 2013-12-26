@@ -30,6 +30,6 @@ public class BattleReport implements Serializable {
 	public long ace2CharacterId;// ace第二名
 	public long ace3CharacterId;// ace第三名
 	
-	public TreeMap<Integer/*teamId*/,String/*teamName*/> battleTeamList = new  TreeMap<Integer/*teamId*/,String/*teamName*/>();//对战战队
+	public TreeMap<Integer/*team*/,Integer/*teamId*/> battleTeamList = new  TreeMap<Integer/*team*/,Integer/*teamId*/>();//对战战队
 	public int winbattleTeamId = 0;//胜利一方的战队ID
 }
