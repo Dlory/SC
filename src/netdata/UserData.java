@@ -62,6 +62,10 @@ public class UserData implements Serializable {
 	 * 还可以获取到的白水晶数目
 	 */
 	public int whiteCrystalNumCurrentDay = 0;
+	/**
+	 * 每天是否已经获取到白水晶的标志,true表示已经获取过首杀,false表示还没获取过
+	 */
+	public volatile boolean addWhiteCrystalFromBattlePerDayFlag = false;
 }
 
 
