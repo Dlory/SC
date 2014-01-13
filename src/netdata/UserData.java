@@ -54,6 +54,14 @@ public class UserData implements Serializable {
 	public String teamName = "";
 	
 	public int teamId = 0;
+	/**
+	 * 白水晶没有掉落保持时间(单位：秒)
+	 */
+	public int whiteCrystalStayTime = 0;
+	/**
+	 * 还可以获取到的白水晶数目
+	 */
+	public int whiteCrystalNumCurrentDay = 0;
 }
 
 
