@@ -30,6 +30,7 @@ public class UserData implements Serializable {
 	public double headKillEfficiency = 0;//爆头率
 	
 	public boolean biochemicalSerum = false;//生化血清
+	public int sprayPaintingCodeName = 0;//喷漆道具对应游戏资源ID
 	
 	/**
 	 * 自由竞技等级
