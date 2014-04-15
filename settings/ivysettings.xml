@@ -1,11 +1,11 @@
 <ivysettings>
 	<settings defaultResolver="main"/>
-	<properties file="./settings.properties" />
-	<include file="ivysettings-nexus.xml" />
-	<include file="ivysettings-main-chain.xml" />
+	<properties file="${settings.dir}/settings.properties" />
+	<include file="${settings.dir}/ivysettings-nexus.xml" />
+	<include file="${settings.dir}/ivysettings-main-chain.xml" />
 
 	<!-- nexus的连接 -->
-	<ivy:configure url="./ivysettings.xml">
+	<ivy:configure url="${settings.dir}/ivysettings.xml">
 		<credentials host="${remote-host}" realm="Sonatype Nexus Repository Manager" username="${username}" passwd="${password}" />
 	</ivy:configure>
 	
