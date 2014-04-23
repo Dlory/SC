@@ -6,7 +6,7 @@
 
 	<!-- nexus的连接 -->
 	<ivy:configure url="${settings.dir}/ivysettings.xml">
-		<credentials host="${remote-host}" realm="Sonatype Nexus Repository Manager" username="${username}" passwd="${password}" />
+		<credentials host="${remote-host}" realm="Sonatype Nexus Repository Manager" username="${ivyUsername}" passwd="${ivyPassword}" />
 	</ivy:configure>
 	
 </ivysettings>
