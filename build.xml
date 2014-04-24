@@ -90,9 +90,7 @@
 	<!-- ivy.xml转换成pom的配置文件（可以手动以pom文件的形式上传jar到nexus仓库中） --> 
     <target name="prepare" description="Generate POM" depends="jar"> 
         <!-- Generate the Maven POM --> 
-		<ivy:makepom ivyfile="ivy.xml" pomfile="${jar.name}.pom">
-			<dependency group="com.wooduan.fps" artifact="share-common" version="${component.version}" optional="true"/>
-		</ivy:makepom>
+		<ivy:makepom ivyfile="ivy.xml" pomfile="${jar.name}.pom"/>
     </target>
 	<!-- nexus仓库中的jar下载到缓存中 --> 
     <target name="resolve" description="retreive dependencies with ivy"> 
