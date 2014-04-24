@@ -15,7 +15,7 @@
 		License.
 	-->
 <ivy-module version="2.0">
-	<info organisation="com.wooduan.fps" module="share-common" />
+	<info organisation="share-common" module="share-common" />
 	<!-- 定要发布的jar --> 
     <publications> 
         <artifact name="share-common" type="jar" ext="jar" />

@@ -90,9 +90,7 @@
 	<!-- ivy.xml转换成pom的配置文件（可以手动以pom文件的形式上传jar到nexus仓库中） --> 
     <target name="prepare" description="Generate POM" depends="jar"> 
         <!-- Generate the Maven POM --> 
-		<ivy:makepom ivyfile="ivy.xml" pomfile="${jar.name}.pom" conf="default,runtime">
-			<mapping conf="default" scope="compile"/>
-			<mapping conf="runtime" scope="runtime"/>
+		<ivy:makepom ivyfile="ivy.xml" pomfile="${jar.name}.pom">
 			<dependency group="com.wooduan.fps" artifact="share-common" version="${component.version}" optional="true"/>
 		</ivy:makepom>
     </target>
@@ -104,7 +102,7 @@
         <ivy:cleancache />  
     </target>
 	<!--* 用ant编译后打包发布到nexus中 *--> 
-    <target name="publish" depends="resolve,prepare" description="Upload to Nexus"> 
+    <target name="publish" depends="prepare" description="Upload to Nexus"> 
         <ivy:publish resolver="share" pubrevision="${component.version}" status ="release" update="true" overwrite="true" forcedeliver="true">
             <artifacts pattern="${build.jar}/[artifact].[ext]" />
 		</ivy:publish> 
