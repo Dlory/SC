@@ -1,6 +1,6 @@
 <ivysettings>
 	<resolvers>
-		<ibiblio name="share" m2compatible="true" pattern="[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" root="${remote-share-url}" />
-		<ibiblio name="public" m2compatible="true" pattern="[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" root="${remote-public-url}" />
+		<ibiblio name="share" m2compatible="true" pattern="${remote-share-url}/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
+		<ibiblio name="public" m2compatible="true" pattern="${remote-public-url}/[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" />
 	</resolvers>
 </ivysettings>
