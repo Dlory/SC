@@ -100,7 +100,7 @@
         <ivy:cleancache />  
     </target>
 	<!--* 用ant编译后打包发布到nexus中 *--> 
-    <target name="publish" depends="clean-cache,resolve,prepare" description="Upload to Nexus"> 
+    <target name="publish" depends="resolve,prepare" description="Upload to Nexus"> 
         <ivy:publish resolver="share" pubrevision="${component.version}" status ="release" update="true" overwrite="true" forcedeliver="true">
             <artifacts pattern="${build.jar}/[artifact].[ext]" />
 		</ivy:publish> 
