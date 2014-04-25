@@ -32,7 +32,7 @@ public class UserData implements Serializable {
 	public boolean biochemicalSerum = false;//生化血清
 	public int sprayPaintingCodeName = 0;//喷漆道具对应游戏资源ID
 	public boolean virusFlag = false;//强化病毒
-	public String biochemicalAvatarCodeName = "";//变异角色对应游戏资源ID,1|2|3
+	public int biochemicalAvatarCodeName = 0;//变异角色对应游戏资源ID
 	
 	/**
 	 * 自由竞技等级
