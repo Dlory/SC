@@ -5,4 +5,5 @@ public class SpecialSubRaceType {
 	public static final int WEAPONTYPE_SNIPER_RIFLE = 42;
 	public static final int WEAPONTYPE_PISTOL = 43;
 	public static final int WEAPONTYPE_BOMB = 44;
+	public static final int WEAPONTYPE_SHOTGUN = 45;
 }
