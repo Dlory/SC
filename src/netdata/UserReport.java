@@ -29,7 +29,8 @@ public class UserReport implements Serializable {
 	// public int title = 0; // 位来表示战斗中获得的头衔
 	public long baseExp = 0; // 基础经验
 	public long addExp = 0; // 经验加成
-	public int gp = 0;
+	public int baseGp = 0; // 基础gp
+	public int addGp = 0;//gp加成
 	public boolean result = false;
 
 	
