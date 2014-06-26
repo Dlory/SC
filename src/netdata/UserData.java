@@ -39,6 +39,7 @@ public class UserData implements Serializable {
 	public boolean submachineMagazineFlag = false;//冲锋枪弹匣
 	public boolean machineMagazineFlag = false;//机枪弹匣
 	public boolean sniperMagazineFlag = false;//狙击枪弹匣
+	public boolean shotgunMagazineFlag = false;//霰弹枪弹匣
 	
 	/**
 	 * 自由竞技等级
