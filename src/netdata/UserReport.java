@@ -14,6 +14,7 @@ public class UserReport implements Serializable {
 	public int wallKill = 0;
 	public int knifeKill = 0;
 	public int grenadeKill = 0;
+	public int killHeroKill = 0;//击杀英雄
 
 	public int hidePackNum = 0; // 埋包次数
 	public int openPackNum = 0; // 拆包次数
