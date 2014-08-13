@@ -8,4 +8,5 @@ public class Rule {
 	public static final int BIOCHEMICAL = 6;
 	public static final int HEROCRAFT = 7;
 	public static final int RECREATION_EXPLODE = 8;
+	public static final int KING_OF_GUN = 9;
 }
