@@ -16,5 +16,5 @@ public class RoomData implements Serializable {
 	public boolean changeTeam = false;//爆破模式 半场换边
 	public int playerNum = 0;//人数，当前模型下满人个数
 	public boolean isPromise = false;
-	public TreeMap<Integer/*team*/,Integer/*teamId*/> battleTeamList = new  TreeMap<Integer/*team*/,Integer/*teamId*/>();//对战战队
+	public TreeMap<Integer/*team*/,TeamData> battleTeamList = new  TreeMap<Integer/*team*/,TeamData>();//对战战队
 }
