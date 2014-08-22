@@ -34,6 +34,10 @@ public class BattleReport implements Serializable {
 	 * 封魔
 	 */
 	public long maxInfectionCharacterId;
+	/**
+	 * 枪王
+	 */
+	public long kingCharacterId;
 	
 	public long maxHidePackCharacterId;
 	public long maxOpenPackCharacterId;
