@@ -78,6 +78,10 @@ public class UserData implements Serializable {
 	 */
 	public boolean addWhiteCrystalFromBattlePerDayFlag = false;
 	public boolean observerFlag = false;//是否观察者
+	/**
+	 * 背部装饰名
+	 */
+	public String backDecorationCodeName = "";
 }
 
 
