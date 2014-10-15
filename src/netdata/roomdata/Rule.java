@@ -10,5 +10,4 @@ public class Rule {
 	public static final int RECREATION_EXPLODE = 8;
 	public static final int KING_OF_GUN = 9;
 	public static final int GROUP_KING_OF_GUN = 10;
-	public static final int PASTIME_GROUP = 11;
 }
