@@ -18,4 +18,8 @@ public class Rule {
 	 * 团队争霸
 	 */
 	public static final int RECREATION_GROUP = 11;
+	/**
+	 * 死亡竞赛
+	 */
+	public static final int DEATH_MATCH = 12;
 }
