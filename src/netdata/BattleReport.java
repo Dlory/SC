@@ -38,6 +38,10 @@ public class BattleReport implements Serializable {
 	 * 枪王
 	 */
 	public long kingCharacterId;
+	/**
+	 * 奶妈
+	 */
+	public long nurseCharacterId;
 	
 	public long maxHidePackCharacterId;
 	public long maxOpenPackCharacterId;
