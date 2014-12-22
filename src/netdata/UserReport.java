@@ -33,7 +33,6 @@ public class UserReport implements Serializable {
 	public int baseGp = 0; // 基础gp
 	public int addGp = 0;//gp加成
 	public boolean result = false;
-
 	
 	public int moreLianSha = 0;//最高连杀数
 	public int fireNum = 0;//开火次数
@@ -49,8 +48,8 @@ public class UserReport implements Serializable {
 	public int whiteCrystalStayTime = 0;//白水晶没有掉落保持时间(单位：秒)
 	public int reliveTeammateNum = 0;//尝试救活队友次数
 	public int reliveTeammateNumSuccess = 0;//成功救活队友次数
-	public int rushWinNum = 0;//残局胜利次数
-	public int rampagNum = 0;//rampage次数
-	public int heroKillNum = 0;//生化英雄击杀数量
-	public boolean[] sectionBestKill;
+	public int rushWinNum = 0;//获得残局1VN胜利次数
+	public int rampagNum = 0;//超神的次数
+	public int heroKillNum = 0;//英雄状态下的击杀数
+	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
 }
