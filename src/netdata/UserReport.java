@@ -50,4 +50,5 @@ public class UserReport implements Serializable {
 	public int reliveTeammateNum = 0;//尝试救活队友次数
 	public int reliveTeammateNumSuccess = 0;//成功救活队友次数
 	public int rushWinNum = 0;//残局胜利次数
+	public int rampagNum = 0;//rampage次数
 }
