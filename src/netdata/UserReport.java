@@ -49,4 +49,5 @@ public class UserReport implements Serializable {
 	public int whiteCrystalStayTime = 0;//白水晶没有掉落保持时间(单位：秒)
 	public int reliveTeammateNum = 0;//尝试救活队友次数
 	public int reliveTeammateNumSuccess = 0;//成功救活队友次数
+	public int rushWinNum = 0;//残局胜利次数
 }
