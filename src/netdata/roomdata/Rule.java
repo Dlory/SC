@@ -22,4 +22,5 @@ public class Rule {
 	 * 死亡竞赛
 	 */
 	public static final int DEATH_MATCH = 12;
+	public static final int DEATH_EXPLODE = 13;
 }
