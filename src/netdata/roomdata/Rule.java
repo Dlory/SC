@@ -23,4 +23,8 @@ public class Rule {
 	 */
 	public static final int DEATH_MATCH = 12;
 	public static final int DEATH_EXPLODE = 13;
+	/**
+	 * 终极变异
+	 */
+	public static final int FINAL_BIOCHEMICAL= 14;
 }
