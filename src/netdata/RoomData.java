@@ -18,4 +18,5 @@ public class RoomData implements Serializable {
 	public boolean isPromise = false;
 	public boolean moreServerFlag = false;//跨服
 	public TreeMap<Integer/*team*/,TeamData> battleTeamList = new  TreeMap<Integer/*team*/,TeamData>();//对战战队
+	public boolean mateBoomHurtInvalid = true;//是否手雷对队友造成伤害
 }
