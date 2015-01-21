@@ -51,5 +51,8 @@ public class UserReport implements Serializable {
 	public int rushWinNum = 0;//获得残局1VN胜利次数
 	public int rampagNum = 0;//超神的次数
 	public int heroKillNum = 0;//英雄状态下的击杀数
+	public int killZombieNum = 0;//击杀变异体
+	public int infectionNum = 0;//感染人数
+	public int killZombieHeroNum = 0;//击杀母体
 	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
 }
