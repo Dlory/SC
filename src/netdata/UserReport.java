@@ -54,5 +54,6 @@ public class UserReport implements Serializable {
 	public int killZombieNum = 0;//击杀变异体
 	public int infectionNum = 0;//感染人数
 	public int killZombieHeroNum = 0;//击杀母体
+	public int changeHeroNum = 0;
 	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
 }
