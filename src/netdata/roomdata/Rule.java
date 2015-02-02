@@ -27,4 +27,17 @@ public class Rule {
 	 * 终极变异
 	 */
 	public static final int FINAL_BIOCHEMICAL= 14;
+	/**
+	 * 属于生化模式
+	 */
+	public static boolean isBioRule(int raceType)
+	{
+		if(raceType == BIOCHEMICAL
+				|| raceType == HEROCRAFT
+				|| raceType == FINAL_BIOCHEMICAL)
+		{
+			return true;
+		}
+		return false;
+	}
 }
