@@ -54,6 +54,7 @@ public class UserReport implements Serializable {
 	public int killZombieNum = 0;//击杀变异体
 	public int infectionNum = 0;//感染人数
 	public int killZombieHeroNum = 0;//击杀母体
+	public int killQueenNum = 0;//击杀变异女皇
 	public int heroMaxKillNum = 0;//英雄最高连杀数
 	public int maxInfectionNum = 0;//最高感染数
 	public int changeHeroNum = 0;//变身英雄次数
