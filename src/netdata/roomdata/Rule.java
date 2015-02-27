@@ -28,6 +28,10 @@ public class Rule {
 	 */
 	public static final int FINAL_BIOCHEMICAL= 14;
 	/**
+	 * 刀锋战士
+	 */
+	public static final int BLADE= 15;
+	/**
 	 * 属于生化模式
 	 */
 	public static boolean isBioRule(int raceType)
