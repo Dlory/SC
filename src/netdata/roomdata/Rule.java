@@ -31,6 +31,7 @@ public class Rule {
 	 * 刀锋战士
 	 */
 	public static final int BLADE= 15;
+	public static final int SUPER_BIOCHEMICAL = 16;
 	/**
 	 * 属于生化模式
 	 */
@@ -38,7 +39,9 @@ public class Rule {
 	{
 		if(raceType == BIOCHEMICAL
 				|| raceType == HEROCRAFT
-				|| raceType == FINAL_BIOCHEMICAL)
+				|| raceType == FINAL_BIOCHEMICAL
+				|| raceType == SUPER_BIOCHEMICAL
+				)
 		{
 			return true;
 		}
