@@ -3,6 +3,10 @@ package netdata;
 import java.io.Serializable;
 
 public class UserReport implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1196861901870113312L;
 	public int dId = 0; // 区号
 	public long characterId = 0;
 	public String playerName = "";

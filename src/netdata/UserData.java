@@ -3,6 +3,10 @@ package netdata;
 import java.io.Serializable;
 
 public class UserData implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7084372677894693475L;
 	public String playerName = "";
 	public String team1Career = "";
 	public String team2Career = "";

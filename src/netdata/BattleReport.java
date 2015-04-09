@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.TreeMap;
 
 public class BattleReport implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4219395050069540978L;
 	public int roomId = 0;
 	public RoomData roomData;
 

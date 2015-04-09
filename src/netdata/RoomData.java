@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.TreeMap;
 
 public class RoomData implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3329628733791075350L;
 	public int roomId = 0;
 	public int sceneId = 0;//地图ID
 	public int winCondition = 0;//比赛规则，回合数、时间、杀人数等
