@@ -18,14 +18,14 @@ public class BattleReport implements Serializable {
 	public int totalNum = 0; // 总参加人数 超过3分钟算
 
 	public long aceCharacterId;
-//	public String aceName;
 	public long mvpCharacterId;
-//	public String mvpName;
 	public long firstKillCharacterId;
-//	public String firstKillName;
 	public long lastKillCharacterId;
-//	public String lastKillName;
-
+	public long ctMvpCharacterId;
+	public long tMvpCharacterId;
+	public long ctKdKingCharacterId;
+	public long tKdKingCharacterId;
+	
 	/**
 	 * 主宰
 	 */
@@ -46,6 +46,8 @@ public class BattleReport implements Serializable {
 	 * 奶妈
 	 */
 	public long nurseCharacterId;
+	public long ctNurseCharacterId;
+	public long tNurseCharacterId;
 	
 	public long maxHidePackCharacterId;
 	public long maxOpenPackCharacterId;
