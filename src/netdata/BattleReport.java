@@ -23,6 +23,7 @@ public class BattleReport implements Serializable {
 	public long lastKillCharacterId;
 	public long ctMvpCharacterId;
 	public long tMvpCharacterId;
+	public long kdKingCharacterId;
 	public long ctKdKingCharacterId;
 	public long tKdKingCharacterId;
 	
