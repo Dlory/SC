@@ -42,6 +42,7 @@ public class Rule {
 				|| raceType == HEROCRAFT
 				|| raceType == FINAL_BIOCHEMICAL
 				|| raceType == SUPER_BIOCHEMICAL
+				|| raceType == GHOST_BIOCHEMICAL
 				)
 		{
 			return true;
