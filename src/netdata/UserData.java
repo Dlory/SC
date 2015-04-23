@@ -15,7 +15,7 @@ public class UserData implements Serializable {
 	public int team = 1;
 	public boolean inGameServer = false;
 	public int roomId = -1;
-	public int readyGame = 0;//锟斤拷锟斤拷状态(0为未准锟斤拷锟斤拷1为准锟斤拷)
+	public int readyGame = 0;//
 	public int isadult = 0;
 	public String username = "";
 	public String loginToken = "";
