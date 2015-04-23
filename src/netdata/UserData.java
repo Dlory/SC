@@ -39,6 +39,7 @@ public class UserData implements Serializable {
 	public boolean virusFlag = false;//强化病毒
 	public int biochemicalAvatarCodeName = 0;//变异角色对应游戏资源ID
 	public boolean biochemicalMagazineFlag = false;//变异弹匣
+	public boolean detectorFlag = false;//探测仪
 	public boolean pistolMagazineFlag = false;//手枪弹匣
 	public boolean rifleMagazineFlag = false;//步枪弹匣
 	public boolean submachineMagazineFlag = false;//冲锋枪弹匣
