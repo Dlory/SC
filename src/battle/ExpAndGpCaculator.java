@@ -89,7 +89,7 @@ public class ExpAndGpCaculator
 			case ConstantRace.RACE_CHAONENG_BIANYI_ID:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_MORI_BIANYI_ID:
+			case ConstantRace.RACE_YOULING_BIANYI_ID:
 				mf = 0.9;
 				break;
 			default:
@@ -97,7 +97,7 @@ public class ExpAndGpCaculator
 				break;
 		}
 		
-		if(br.roomData.raceType == ConstantRace.RACE_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YINGXIONG_ID || br.roomData.raceType == ConstantRace.RACE_ZHONGJI_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_CHAONENG_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_MORI_BIANYI_ID) 
+		if(br.roomData.raceType == ConstantRace.RACE_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YINGXIONG_ID || br.roomData.raceType == ConstantRace.RACE_ZHONGJI_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_CHAONENG_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YOULING_BIANYI_ID) 
 		{
 			baseExp = (baseExp + Math.min(2000, ur.score) / 3.5 ) * bf * mf;
 		}
@@ -215,7 +215,7 @@ public class ExpAndGpCaculator
 			case ConstantRace.RACE_CHAONENG_BIANYI_ID:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_MORI_BIANYI_ID:
+			case ConstantRace.RACE_YOULING_BIANYI_ID:
 				mf = 0.9;
 				break;
 			default:
@@ -223,7 +223,7 @@ public class ExpAndGpCaculator
 				break;
 		}
 		
-		if(br.roomData.raceType == ConstantRace.RACE_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YINGXIONG_ID || br.roomData.raceType == ConstantRace.RACE_ZHONGJI_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_CHAONENG_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_MORI_BIANYI_ID) 
+		if(br.roomData.raceType == ConstantRace.RACE_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YINGXIONG_ID || br.roomData.raceType == ConstantRace.RACE_ZHONGJI_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_CHAONENG_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YOULING_BIANYI_ID) 
 		{
 			baseGp = (baseGp + Math.min(2000, ur.score) / 3.5 ) * bf * mf;
 		}

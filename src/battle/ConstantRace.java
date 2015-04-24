@@ -84,9 +84,9 @@ public class ConstantRace {
 	public static final int RACE_CHAONENG_BIANYI_ID = 16;
 	
 	/**
-	 * 末日变异ID
+	 * 幽灵变异ID
 	 */
-	public static final int RACE_MORI_BIANYI_ID = 17;
+	public static final int RACE_YOULING_BIANYI_ID = 17;
 	
 	/**
 	 * 赏金爆破ID
