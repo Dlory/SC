@@ -3,11 +3,23 @@ package netdata;
 import java.io.Serializable;
 
 public class UserData implements Serializable {
+	
+	public UserData(int userId,long cid,String[] bagArray,String team1Career,String team2Career) {
+		this.userId = userId;
+		this.characterId = cid;
+		this.bagArray = bagArray;
+		this.team1Career = team1Career;
+		this.team2Career = team2Career;
+	}
+	
+	public UserData() {
+		//do nonthing
+	}
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -7084372677894693475L;
-	public String playerName = "";
+	public String playerName = "ThisNameIsNotSoGood";
 	public String team1Career = "";
 	public String team2Career = "";
 	public int userId = 0;
@@ -87,6 +99,7 @@ public class UserData implements Serializable {
 	 * 背部装饰名
 	 */
 	public String backDecorationCodeName = "";
+	
 }
 
 
