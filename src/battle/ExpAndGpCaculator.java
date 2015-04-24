@@ -90,7 +90,7 @@ public class ExpAndGpCaculator
 				mf = 0.75;
 				break;
 			case ConstantRace.RACE_YOULING_BIANYI_ID:
-				mf = 0.9;
+				mf = 0.75;
 				break;
 			default:
 				mf = 0.75;
@@ -216,7 +216,7 @@ public class ExpAndGpCaculator
 				mf = 0.75;
 				break;
 			case ConstantRace.RACE_YOULING_BIANYI_ID:
-				mf = 0.9;
+				mf = 0.75;
 				break;
 			default:
 				mf = 0.75;
