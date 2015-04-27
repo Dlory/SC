@@ -49,4 +49,12 @@ public class Rule {
 		}
 		return false;
 	}
+	public static boolean isNoTeamRule(int raceType)
+	{
+		if(raceType == KING_OF_GUN || raceType == PERSONAL)
+		{
+			return true;
+		}
+		return false;
+	}
 }
