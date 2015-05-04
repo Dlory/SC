@@ -1,6 +1,0 @@
-<ivysettings>
-	<resolvers>
-		<ibiblio name="share" pattern="[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" root="${remote-share-url}" />
-		<ibiblio name="public" pattern="[organisation]/[module]/[revision]/[artifact]-[revision].[ext]" root="${remote-public-url}" />
-	</resolvers>
-</ivysettings>
