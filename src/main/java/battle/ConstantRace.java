@@ -89,7 +89,12 @@ public class ConstantRace {
 	public static final int RACE_YOULING_BIANYI_ID = 17;
 	
 	/**
+	 * 塔防模式ID
+	 */
+	public static final int RACE_TAFANG_ID = 18;
+	
+	/**
 	 * 赏金爆破ID
 	 */
-	public static final int RACE_SHANGJIN_BAOPO_ID = 18;
+	public static final int RACE_SHANGJIN_BAOPO_ID = 19;
 }
