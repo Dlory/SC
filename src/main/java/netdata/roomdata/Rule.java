@@ -33,6 +33,7 @@ public class Rule {
 	public static final int BLADE= 15;
 	public static final int SUPER_BIOCHEMICAL = 16;
 	public static final int GHOST_BIOCHEMICAL = 17;
+	public static final int TD = 18;
 	/**
 	 * 属于生化模式
 	 */

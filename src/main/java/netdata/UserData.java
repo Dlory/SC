@@ -10,8 +10,10 @@ public class UserData implements Serializable {
 		this.bagArray = bagArray;
 		this.team1Career = team1Career;
 		this.team2Career = team2Career;
+		this.isBot = true;
 	}
 	
+	public boolean isBot = false;
 	public UserData() {
 		//do nonthing
 	}
@@ -101,6 +103,3 @@ public class UserData implements Serializable {
 	public String backDecorationCodeName = "";
 	
 }
-
-
-
