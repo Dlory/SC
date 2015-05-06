@@ -2,6 +2,7 @@ package battle;
 
 import netdata.BattleReport;
 import netdata.UserReport;
+import netdata.roomdata.Rule;
 
 public class ExpAndGpCaculator
 {
@@ -38,61 +39,58 @@ public class ExpAndGpCaculator
 		double mf = 0;
 		switch (br.roomData.raceType) 
 		{
-			case ConstantRace.RACE_BAOPO_ID:
+			case Rule.EXPLODE:
 				mf = 1;
 				break;
-			case ConstantRace.RACE_TUANDUI_ID:
+			case Rule.GROUP:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_TESHU_ID:
+			case Rule.SPECIAL_GROUP:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_GEREN_ID:
+			case Rule.PERSONAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_BIANYI_ID:
+			case Rule.BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_YINGXIONG_ID:
+			case Rule.HEROCRAFT:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_WUXIAN_BAOPO_ID:
+			case Rule.RECREATION_EXPLODE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_QIANGWANG_ID:
+			case Rule.KING_OF_GUN:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_TUANDUI_QIANGWANG_ID:
+			case Rule.GROUP_KING_OF_GUN:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_YULE_TUANDUI_ID:
+			case Rule.GROUP_RECHARGE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_TUANDUI_ZHENGBA_ID:
+			case Rule.RECREATION_GROUP:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_SIWANG_JINGSAI_ID:
+			case Rule.DEATH_MATCH:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_SHENGSI_BAOPO_ID:
+			case Rule.DEATH_EXPLODE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_DAOFENG_ZHANSHI_ID:
+			case Rule.BLADE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_SHANGJIN_BAOPO_ID:
-				mf = 0.9;
-				break;
-			case ConstantRace.RACE_ZHONGJI_BIANYI_ID:
+			case Rule.FINAL_BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_CHAONENG_BIANYI_ID:
+			case Rule.SUPER_BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_YOULING_BIANYI_ID:
+			case Rule.GHOST_BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_TAFANG_ID:
+			case Rule.TD:
 				mf = 0;
 				break;
 			default:
@@ -100,7 +98,7 @@ public class ExpAndGpCaculator
 				break;
 		}
 		
-		if(br.roomData.raceType == ConstantRace.RACE_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YINGXIONG_ID || br.roomData.raceType == ConstantRace.RACE_ZHONGJI_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_CHAONENG_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YOULING_BIANYI_ID) 
+		if(br.roomData.raceType == Rule.BIOCHEMICAL || br.roomData.raceType == Rule.HEROCRAFT || br.roomData.raceType == Rule.FINAL_BIOCHEMICAL || br.roomData.raceType == Rule.SUPER_BIOCHEMICAL || br.roomData.raceType == Rule.GHOST_BIOCHEMICAL) 
 		{
 			baseExp = (baseExp + Math.min(2000, ur.score) / 3.5 ) * bf * mf;
 		}
@@ -167,61 +165,58 @@ public class ExpAndGpCaculator
 		double mf = 0;
 		switch (br.roomData.raceType) 
 		{
-			case ConstantRace.RACE_BAOPO_ID:
+			case Rule.EXPLODE:
 				mf = 1;
 				break;
-			case ConstantRace.RACE_TUANDUI_ID:
+			case Rule.GROUP:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_TESHU_ID:
+			case Rule.SPECIAL_GROUP:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_GEREN_ID:
+			case Rule.PERSONAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_BIANYI_ID:
+			case Rule.BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_YINGXIONG_ID:
+			case Rule.HEROCRAFT:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_WUXIAN_BAOPO_ID:
+			case Rule.RECREATION_EXPLODE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_QIANGWANG_ID:
+			case Rule.KING_OF_GUN:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_TUANDUI_QIANGWANG_ID:
+			case Rule.GROUP_KING_OF_GUN:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_YULE_TUANDUI_ID:
+			case Rule.GROUP_RECHARGE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_TUANDUI_ZHENGBA_ID:
+			case Rule.RECREATION_GROUP:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_SIWANG_JINGSAI_ID:
+			case Rule.DEATH_MATCH:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_SHENGSI_BAOPO_ID:
+			case Rule.DEATH_EXPLODE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_DAOFENG_ZHANSHI_ID:
+			case Rule.BLADE:
 				mf = 0.9;
 				break;
-			case ConstantRace.RACE_SHANGJIN_BAOPO_ID:
-				mf = 0.9;
-				break;
-			case ConstantRace.RACE_ZHONGJI_BIANYI_ID:
+			case Rule.FINAL_BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_CHAONENG_BIANYI_ID:
+			case Rule.SUPER_BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_YOULING_BIANYI_ID:
+			case Rule.GHOST_BIOCHEMICAL:
 				mf = 0.75;
 				break;
-			case ConstantRace.RACE_TAFANG_ID:
+			case Rule.TD:
 				mf = 0;
 				break;
 			default:
@@ -229,7 +224,7 @@ public class ExpAndGpCaculator
 				break;
 		}
 		
-		if(br.roomData.raceType == ConstantRace.RACE_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YINGXIONG_ID || br.roomData.raceType == ConstantRace.RACE_ZHONGJI_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_CHAONENG_BIANYI_ID || br.roomData.raceType == ConstantRace.RACE_YOULING_BIANYI_ID) 
+		if(br.roomData.raceType == Rule.BIOCHEMICAL || br.roomData.raceType == Rule.HEROCRAFT || br.roomData.raceType == Rule.FINAL_BIOCHEMICAL || br.roomData.raceType == Rule.SUPER_BIOCHEMICAL || br.roomData.raceType == Rule.GHOST_BIOCHEMICAL) 
 		{
 			baseGp = (baseGp + Math.min(2000, ur.score) / 3.5 ) * bf * mf;
 		}
