@@ -93,6 +93,9 @@ public class ExpAndGpCaculator
 			case Rule.TD:
 				mf = 0;
 				break;
+			case Rule.BIG_HEAD:
+				mf = 0.75;
+				break;
 			default:
 				mf = 0.75;
 				break;
@@ -218,6 +221,9 @@ public class ExpAndGpCaculator
 				break;
 			case Rule.TD:
 				mf = 0;
+				break;
+			case Rule.BIG_HEAD:
+				mf = 0.75;
 				break;
 			default:
 				mf = 0.75;

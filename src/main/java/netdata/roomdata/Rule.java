@@ -75,6 +75,10 @@ public class Rule {
 	 */
 	public static final int TD=18;
 	/**
+	 * 大头模式
+	 */
+	public static final int BIG_HEAD = 19;
+	/**
 	 * 属于生化模式
 	 */
 	public static boolean isBioRule(int raceType)
