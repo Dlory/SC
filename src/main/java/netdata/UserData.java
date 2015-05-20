@@ -1,6 +1,7 @@
 package netdata;
 
 import java.io.Serializable;
+import java.util.Collection;
 
 public class UserData implements Serializable {
 	
@@ -60,6 +61,24 @@ public class UserData implements Serializable {
 	public boolean machineMagazineFlag = false;//机枪弹匣
 	public boolean sniperMagazineFlag = false;//狙击枪弹匣
 	public boolean shotgunMagazineFlag = false;//霰弹枪弹匣
+	
+	public boolean primaryExpCardFlag = false;
+	public boolean primaryGpCardFlag = false;
+	public boolean advancedExpCardFlag = false;
+	public boolean advancedGpCardFlag = false;
+	public Collection<Integer> friendList = null;
+
+	public double expDecoration;//exp饰品倍率
+	public double gpDecoration;//gp饰品倍率
+	
+	//武器经验和GP加成参数
+	public double weaponSelfAddExp = 0;
+	public double weaponOtherAddExp = 0;
+	public double weaponSelfAddGp = 0;
+	public double weaponOtherAddGp = 0;
+	public boolean hasHeroWeapon = false;
+	
+	public Collection<MultiCampaignData> multiCampaigns;//N倍活动信息
 	
 	/**
 	 * 自由竞技等级
