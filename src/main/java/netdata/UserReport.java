@@ -90,4 +90,25 @@ public class UserReport implements Serializable {
 	public int advancedGpCardAddGp = 0;//高级GP卡GP加成
 	public int decorationAddExp = 0;//饰品经验加成
 	public int decorationAddGp = 0;//饰品GP加成
+	
+	public void copyFromUserData(UserData userData)
+	{
+		primaryExpCardFlag = userData.primaryExpCardFlag;
+		primaryGpCardFlag = userData.primaryGpCardFlag;
+		advancedExpCardFlag = userData.advancedExpCardFlag;
+		advancedGpCardFlag = userData.advancedGpCardFlag;
+		friendList = userData.friendList;
+
+		expDecoration = userData.expDecoration;
+		gpDecoration = userData.gpDecoration;
+		
+		
+		weaponSelfAddExp = userData.weaponSelfAddExp;
+		weaponOtherAddExp = userData.weaponOtherAddExp;
+		weaponSelfAddGp = userData.weaponSelfAddGp;
+		weaponOtherAddGp = userData.weaponOtherAddGp;
+		hasHeroWeapon = userData.hasHeroWeapon;
+		multiCampaigns = userData.multiCampaigns;
+
+	}
 }
