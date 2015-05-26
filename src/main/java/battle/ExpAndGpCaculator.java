@@ -329,10 +329,8 @@ public class ExpAndGpCaculator
 			userReport.battleAddExp = 0;
 			userReport.battleAddGp = 0;
 
-			//变异战，主宰，幸存，封魔经验加成
-			if(battleReport.roomData.raceType == Rule.BIOCHEMICAL || battleReport.roomData.raceType == Rule.HEROCRAFT ||
-					battleReport.roomData.raceType == Rule.FINAL_BIOCHEMICAL || battleReport.roomData.raceType == Rule.SUPER_BIOCHEMICAL ||
-					battleReport.roomData.raceType == Rule.GHOST_BIOCHEMICAL)
+			//变异战、主宰、幸存、封魔经验加成
+			if(Rule.isBioRule(battleReport.roomData.raceType))
 			{
 				if(userReport.characterId == battleReport.bioAceCharacterId)
 				{
@@ -349,51 +347,66 @@ public class ExpAndGpCaculator
 			}
 			else
 			{
-				//爆破战MVP
-				if(battleReport.roomData.raceType == Rule.EXPLODE)
+				//MVP - 爆破战
+				if ((userReport.characterId == battleReport.ctMvpCharacterId || userReport.characterId == battleReport.tMvpCharacterId) &&
+					battleReport.roomData.raceType == Rule.EXPLODE)
 				{
-					if (userReport.characterId == battleReport.ctMvpCharacterId || userReport.characterId == battleReport.tMvpCharacterId)
-					{
-						userReport.battleAddExp += 0.1 * userReport.baseExp;
-					}
+					userReport.battleAddExp += 0.1 * userReport.baseExp;
 				}
 
-				//爆破手
-				if(battleReport.roomData.raceType == Rule.EXPLODE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_EXPLODE)
+				//爆破手 - 爆破战、无限爆破、生死爆破
+				if ((userReport.characterId == battleReport.maxHidePackCharacterId || userReport.characterId == battleReport.maxOpenPackCharacterId) &&
+					(battleReport.roomData.raceType == Rule.EXPLODE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_EXPLODE))
 				{
-					if (userReport.characterId == battleReport.maxHidePackCharacterId || userReport.characterId == battleReport.maxOpenPackCharacterId)
-					{
-						userReport.battleAddExp += 0.05 * userReport.baseExp;
-					}
+					userReport.battleAddExp += 0.05 * userReport.baseExp;
 				}
 
-				//生死爆破、刀锋战士、死亡竞赛双方阵营救助者
-				if(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH)
+				//救助者 - 生死爆破、刀锋战士、死亡竞赛、大头争霸
+				if ((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) &&
+					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH || battleReport.roomData.raceType == Rule.BIG_HEAD))
 				{
-					if (userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId)
-					{
-						userReport.battleAddExp += 0.1 * userReport.baseExp;
-					}
+					userReport.battleAddExp += 0.1 * userReport.baseExp;
+				}
+				
+				//没有阵营的KD王 - 枪王之王、个人战
+				if((userReport.characterId == battleReport.kdKingCharacterId) &&
+				   (battleReport.roomData.raceType == Rule.KING_OF_GUN || battleReport.roomData.raceType == Rule.PERSONAL))
+				{
+					userReport.battleAddExp += 0.05 * userReport.baseExp;
+				}
+				
+				//有阵营的KD王 - 爆破战、无限爆破、生死爆破、刀锋战士、死亡竞赛、经典团战、娱乐团战、团队争霸、特殊战、团队枪王
+				if ((userReport.characterId == battleReport.ctKdKingCharacterId || userReport.characterId == battleReport.tKdKingCharacterId) &&
+					(battleReport.roomData.raceType == Rule.EXPLODE ||battleReport.roomData.raceType == Rule.RECREATION_EXPLODE ||battleReport.roomData.raceType == Rule.DEATH_EXPLODE ||
+					 battleReport.roomData.raceType == Rule.BLADE ||battleReport.roomData.raceType == Rule.DEATH_MATCH ||battleReport.roomData.raceType == Rule.GROUP ||
+					 battleReport.roomData.raceType == Rule.GROUP_RECHARGE ||battleReport.roomData.raceType == Rule.RECREATION_GROUP ||battleReport.roomData.raceType == Rule.SPECIAL_GROUP ||
+					 battleReport.roomData.raceType == Rule.GROUP_KING_OF_GUN))
+				{
+					userReport.battleAddExp += 0.05 * userReport.baseExp;
+				}
+				
+				//大头终结者 - 大头争霸
+				if ((userReport.characterId == battleReport.terminatorCharacterId) &&
+					battleReport.roomData.raceType == Rule.BIG_HEAD)
+				{
+					userReport.battleAddExp += 0.05 * userReport.baseExp;
+				}
+				
+				//大头霸者 - 大头争霸
+				if ((userReport.characterId == battleReport.overloadCharacterId) &&
+					battleReport.roomData.raceType == Rule.BIG_HEAD)
+				{
+					userReport.battleAddExp += 0.05 * userReport.baseExp;
+				}
+				
+				//战地医生 - 大头争霸
+				if((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) && 
+				    battleReport.roomData.raceType == Rule.BIG_HEAD)
+				{
+					userReport.battleAddExp += 0.05 * userReport.baseExp;
 				}
 
-				//除变异模式外其他各模式KD王
-				if(battleReport.roomData.raceType == Rule.KING_OF_GUN || battleReport.roomData.raceType == Rule.PERSONAL)
-				{
-					//没有阵营的模式只有一个
-					if(userReport.characterId == battleReport.kdKingCharacterId)
-					{
-						userReport.battleAddExp += 0.05 * userReport.baseExp;
-					}
-				}
-				else
-				{
-					//有阵营的模式双方阵营各一个KD王
-					if (userReport.characterId == battleReport.ctKdKingCharacterId || userReport.characterId == battleReport.tKdKingCharacterId)
-					{
-						userReport.battleAddExp += 0.05 * userReport.baseExp;
-					}
-				}
-
+				//ACE - 除变异模式外的所有模式
 				if (userReport.characterId == battleReport.aceCharacterId) {
 					userReport.battleAddExp += 0.25 * userReport.baseExp;
 					userReport.battleAddGp += 0.1 * userReport.baseGp;
