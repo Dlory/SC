@@ -361,9 +361,9 @@ public class ExpAndGpCaculator
 					userReport.battleAddExpRatio += 0.05;
 				}
 
-				//救助者 - 生死爆破、刀锋战士、死亡竞赛、大头争霸
+				//救助者 - 生死爆破、刀锋战士、死亡竞赛
 				if ((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) &&
-					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH || battleReport.roomData.raceType == Rule.BIG_HEAD))
+					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH))
 				{
 					userReport.battleAddExpRatio += 0.1;
 				}
