@@ -68,14 +68,14 @@ public class UserData implements Serializable {
 	public boolean advancedGpCardFlag = false;
 	public Collection<Integer> friendList = null;
 
-	public double expDecoration;//exp饰品倍率
-	public double gpDecoration;//gp饰品倍率
+	public float expDecoration;//exp饰品倍率
+	public float gpDecoration;//gp饰品倍率
 	
 	//武器经验和GP加成参数
-	public double weaponSelfAddExp = 0;
-	public double weaponOtherAddExp = 0;
-	public double weaponSelfAddGp = 0;
-	public double weaponOtherAddGp = 0;
+	public float weaponSelfAddExp = 0;
+	public float weaponOtherAddExp = 0;
+	public float weaponSelfAddGp = 0;
+	public float weaponOtherAddGp = 0;
 	public boolean hasHeroWeapon = false;
 	
 	public Collection<MultiCampaignData> multiCampaigns;//N倍活动信息

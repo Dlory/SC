@@ -9,10 +9,10 @@ import java.util.*;
 
 public class ExpAndGpCaculator
 {
-	private static final double PRIMARY_EXP_CARD_ADDITION = 0.3;    //初级经验卡加成
-	private static final double PRIMARY_GP_CARD_ADDITION = 0.3;     //初级GP卡加成
-	private static final double ADVANCED_EXP_CARD_ADDITION = 0.6;   //高级经验卡加成
-	private static final double ADVANCED_GP_CARD_ADDITION = 0.6;         //高级GP卡加成
+	private static final float PRIMARY_EXP_CARD_ADDITION = 0.3f;    //初级经验卡加成
+	private static final float PRIMARY_GP_CARD_ADDITION = 0.3f;     //初级GP卡加成
+	private static final float ADVANCED_EXP_CARD_ADDITION = 0.6f;   //高级经验卡加成
+	private static final float ADVANCED_GP_CARD_ADDITION = 0.6f;         //高级GP卡加成
 
 	public static int getBaseExp(BattleReport br, UserReport ur)
 	{
@@ -326,23 +326,23 @@ public class ExpAndGpCaculator
 		{
 			UserReport userReport = battleReport.userReportList[i];
 
-			userReport.battleAddExp = 0;
-			userReport.battleAddGp = 0;
+			userReport.battleAddExpRatio = 0;
+			userReport.battleAddGpRatio = 0;
 
 			//变异战、主宰、幸存、封魔经验加成
 			if(Rule.isBioRule(battleReport.roomData.raceType))
 			{
 				if(userReport.characterId == battleReport.bioAceCharacterId)
 				{
-					userReport.battleAddExp += 0.25*userReport.baseExp;
+					userReport.battleAddExpRatio += 0.25;
 				}
 				if(userReport.characterId == battleReport.maxInfectionCharacterId)
 				{
-					userReport.battleAddExp += 0.05*userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 				if(userReport.characterId == battleReport.maxLiveCharacterId)
 				{
-					userReport.battleAddExp += 0.05*userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 			}
 			else
@@ -351,28 +351,28 @@ public class ExpAndGpCaculator
 				if ((userReport.characterId == battleReport.ctMvpCharacterId || userReport.characterId == battleReport.tMvpCharacterId) &&
 					battleReport.roomData.raceType == Rule.EXPLODE)
 				{
-					userReport.battleAddExp += 0.1 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.1;
 				}
 
 				//爆破手 - 爆破战、无限爆破、生死爆破
 				if ((userReport.characterId == battleReport.maxHidePackCharacterId || userReport.characterId == battleReport.maxOpenPackCharacterId) &&
 					(battleReport.roomData.raceType == Rule.EXPLODE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_EXPLODE))
 				{
-					userReport.battleAddExp += 0.05 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 
 				//救助者 - 生死爆破、刀锋战士、死亡竞赛、大头争霸
 				if ((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) &&
 					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH || battleReport.roomData.raceType == Rule.BIG_HEAD))
 				{
-					userReport.battleAddExp += 0.1 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.1;
 				}
 				
 				//没有阵营的KD王 - 枪王之王、个人战
 				if((userReport.characterId == battleReport.kdKingCharacterId) &&
 				   (battleReport.roomData.raceType == Rule.KING_OF_GUN || battleReport.roomData.raceType == Rule.PERSONAL))
 				{
-					userReport.battleAddExp += 0.05 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 				
 				//有阵营的KD王 - 爆破战、无限爆破、生死爆破、刀锋战士、死亡竞赛、经典团战、娱乐团战、团队争霸、特殊战、团队枪王
@@ -382,36 +382,39 @@ public class ExpAndGpCaculator
 					 battleReport.roomData.raceType == Rule.GROUP_RECHARGE ||battleReport.roomData.raceType == Rule.RECREATION_GROUP ||battleReport.roomData.raceType == Rule.SPECIAL_GROUP ||
 					 battleReport.roomData.raceType == Rule.GROUP_KING_OF_GUN))
 				{
-					userReport.battleAddExp += 0.05 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 				
 				//大头终结者 - 大头争霸
 				if ((userReport.characterId == battleReport.terminatorCharacterId) &&
 					battleReport.roomData.raceType == Rule.BIG_HEAD)
 				{
-					userReport.battleAddExp += 0.05 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 				
 				//大头霸者 - 大头争霸
 				if ((userReport.characterId == battleReport.overloadCharacterId) &&
 					battleReport.roomData.raceType == Rule.BIG_HEAD)
 				{
-					userReport.battleAddExp += 0.05 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 				
 				//战地医生 - 大头争霸
 				if((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) && 
 				    battleReport.roomData.raceType == Rule.BIG_HEAD)
 				{
-					userReport.battleAddExp += 0.05 * userReport.baseExp;
+					userReport.battleAddExpRatio += 0.05;
 				}
 
 				//ACE - 除变异模式外的所有模式
 				if (userReport.characterId == battleReport.aceCharacterId) {
-					userReport.battleAddExp += 0.25 * userReport.baseExp;
-					userReport.battleAddGp += 0.1 * userReport.baseGp;
+					userReport.battleAddExpRatio += 0.25;
+					userReport.battleAddGpRatio += 0.1;
 				}
 			}
+			
+			userReport.battleAddExp = Math.round(userReport.battleAddExpRatio * userReport.baseExp);
+			userReport.battleAddGp = Math.round(userReport.battleAddGpRatio * userReport.baseGp);
 		}
 	}
 
@@ -432,37 +435,41 @@ public class ExpAndGpCaculator
 
 	private static void addExtraGpOrExpForItem(BattleReport battleReport)
 	{
-		for (int i = 0; i < battleReport.userReportList.length; i++)
+		for (UserReport userReport : battleReport.userReportList)
 		{
-			UserReport userReport = battleReport.userReportList[i];
-
 			//初级经验卡
 			if(userReport.primaryExpCardFlag)
 			{
-				userReport.primaryExpCardAddExp =  (int)Math.round(userReport.baseExp * PRIMARY_EXP_CARD_ADDITION);
+				userReport.primaryExpCardAddExpRatio = PRIMARY_EXP_CARD_ADDITION;
+				userReport.primaryExpCardAddExp =  Math.round(userReport.baseExp * PRIMARY_EXP_CARD_ADDITION);
 			}
 
 			//初级GP卡
 			if(userReport.primaryGpCardFlag)
 			{
-				userReport.primaryGpCardAddGp =  (int)Math.round(userReport.baseGp * PRIMARY_GP_CARD_ADDITION);
+				userReport.primaryGpCardAddGpRatio = PRIMARY_GP_CARD_ADDITION;
+				userReport.primaryGpCardAddGp =  Math.round(userReport.baseGp * PRIMARY_GP_CARD_ADDITION);
 			}
 
 			//高级经验卡
 			if(userReport.advancedExpCardFlag)
 			{
-				userReport.advancedExpCardAddExp =  (int)Math.round(userReport.baseExp * ADVANCED_EXP_CARD_ADDITION);
+				userReport.advancedExpCardAddExpRatio = ADVANCED_EXP_CARD_ADDITION;
+				userReport.advancedExpCardAddExp =  Math.round(userReport.baseExp * ADVANCED_EXP_CARD_ADDITION);
 			}
 
 			//高级GP卡
 			if(userReport.advancedGpCardFlag)
 			{
-				userReport.advancedGpCardAddGp =  (int)Math.round(userReport.baseGp * ADVANCED_GP_CARD_ADDITION);
+				userReport.advancedGpCardAddGpRatio = ADVANCED_GP_CARD_ADDITION;
+				userReport.advancedGpCardAddGp =  Math.round(userReport.baseGp * ADVANCED_GP_CARD_ADDITION);
 			}
 
 			//饰品
-			userReport.decorationAddExp =  (int)Math.round(userReport.baseExp * userReport.expDecoration);
-			userReport.decorationAddGp =  (int)Math.round(userReport.baseGp * userReport.gpDecoration);
+			userReport.decorationAddExpRatio = userReport.expDecoration;
+			userReport.decorationAddExp = Math.round(userReport.baseExp * userReport.expDecoration);
+			userReport.decorationAddGpRatio = userReport.gpDecoration;
+			userReport.decorationAddGp = Math.round(userReport.baseGp * userReport.gpDecoration);
 		}
 	}
 
@@ -470,29 +477,29 @@ public class ExpAndGpCaculator
 	{
 		for (UserReport userReport : battleReport.userReportList)
 		{
-			double rate = 0;
+			userReport.teamAndFriendAddExpRatio = 0;
 
 			for (UserReport otherUserReport : battleReport.userReportList)
 			{
 				if(userReport != otherUserReport && userReport.dId == otherUserReport.dId && ((userReport.teamId > 0 && userReport.teamId == otherUserReport.teamId) || (userReport.friendList != null && userReport.friendList.contains(otherUserReport.characterId))))
 				{
-					rate += 0.1;
+					userReport.teamAndFriendAddExpRatio += 0.1;
 
-					if(rate >= 0.5)
+					if(userReport.teamAndFriendAddExpRatio >= 0.5)
 					{
 						break;
 					}
 				}
 			}
 
-			userReport.teamAndFriendAddExp = (int)Math.round(userReport.baseExp * rate);
+			userReport.teamAndFriendAddExp = Math.round(userReport.baseExp * userReport.teamAndFriendAddExpRatio);
 		}
 	}
 
 	private static  void addGpAndExpForWeapon(BattleReport battleReport)
 	{
-		double maxAddExp = 0;
-		double maxAddGp = 0;
+		float maxAddExp = 0;
+		float maxAddGp = 0;
 
 		for (UserReport userReport : battleReport.userReportList)
 		{
@@ -507,13 +514,17 @@ public class ExpAndGpCaculator
 			
 			if (userReport.hasHeroWeapon)
 			{
-				userReport.heroWeaponAddExp += (int) Math.round(userReport.baseExp * userReport.weaponSelfAddExp);
-				userReport.heroWeaponAddGp += (int) Math.round(userReport.baseGp * userReport.weaponSelfAddGp);
+				userReport.heroWeaponAddExpRatio = userReport.weaponSelfAddExp;
+				userReport.heroWeaponAddExp += Math.round(userReport.baseExp * userReport.weaponSelfAddExp);
+				userReport.heroWeaponAddGpRatio = userReport.weaponSelfAddGp;
+				userReport.heroWeaponAddGp += Math.round(userReport.baseGp * userReport.weaponSelfAddGp);
 			}
 			else
 			{
-				userReport.heroWeaponAddExp = (int) Math.round(userReport.baseExp * maxAddExp);
-				userReport.heroWeaponAddGp = (int) Math.round(userReport.baseGp * maxAddGp);
+				userReport.heroWeaponAddExpRatio = userReport.weaponSelfAddExp;
+				userReport.heroWeaponAddExp = Math.round(userReport.baseExp * maxAddExp);
+				userReport.heroWeaponAddGpRatio = maxAddGp;
+				userReport.heroWeaponAddGp = Math.round(userReport.baseGp * maxAddGp);
 			}
 		}
 	}

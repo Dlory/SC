@@ -35,23 +35,23 @@ public class UserReport implements Serializable {
 	public boolean advancedGpCardFlag = false;
 	public Collection<Integer> friendList = null;
 
-	public double expDecoration;//exp饰品倍率
-	public double gpDecoration;//gp饰品倍率
+	public float expDecoration;//exp饰品倍率
+	public float gpDecoration;//gp饰品倍率
 	
 	//武器经验和GP加成参数
-	public double weaponSelfAddExp = 0;
-	public double weaponOtherAddExp = 0;
-	public double weaponSelfAddGp = 0;
-	public double weaponOtherAddGp = 0;
+	public float weaponSelfAddExp = 0;
+	public float weaponOtherAddExp = 0;
+	public float weaponSelfAddGp = 0;
+	public float weaponOtherAddGp = 0;
 	public boolean hasHeroWeapon = false;
 	public Collection<MultiCampaignData> multiCampaigns;//N倍活动加成信息
 
 	// 以下字段占位 房间服务器会赋值
 	public int lv = 0;
-	// public int title = 0; // 位来表示战斗中获得的头衔
-	public int baseExp = 0; // 基础经验
-	public int battleAddExp = 0; // 战斗荣耀经验加成
-	public int baseGp = 0; // 基础gp
+	// public int title = 0; //位来表示战斗中获得的头衔
+	public int baseExp = 0; //基础经验
+	public int battleAddExp = 0; //战斗荣耀经验加成
+	public int baseGp = 0; //基础gp
 	public int battleAddGp = 0;//战斗荣耀gp加成
 	public boolean result = false;
 	
@@ -90,6 +90,18 @@ public class UserReport implements Serializable {
 	public int advancedGpCardAddGp = 0;//高级GP卡GP加成
 	public int decorationAddExp = 0;//饰品经验加成
 	public int decorationAddGp = 0;//饰品GP加成
+	
+	public float battleAddExpRatio = 0; //战斗荣耀经验加成比
+	public float battleAddGpRatio = 0;//战斗荣耀gp加成比
+	public float heroWeaponAddExpRatio = 0;//英雄武器经验加成比
+	public float heroWeaponAddGpRatio = 0;//英雄武器金币加成比
+	public float teamAndFriendAddExpRatio = 0;//战队加成比
+	public float primaryExpCardAddExpRatio = 0;//初级经验卡经验加成比
+	public float primaryGpCardAddGpRatio = 0;//初级GP卡经验加成比
+	public float advancedExpCardAddExpRatio = 0;//高级经验卡经验加成比
+	public float advancedGpCardAddGpRatio = 0;//高级GP卡GP加成比
+	public float decorationAddExpRatio = 0;//饰品经验加成比
+	public float decorationAddGpRatio = 0;//饰品GP加成比
 	
 	public void copyFromUserData(UserData userData)
 	{
