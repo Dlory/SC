@@ -405,9 +405,21 @@ public class ExpAndGpCaculator
 				{
 					userReport.battleAddExpRatio += 0.05;
 				}
+				
+				//枪王 - 个人枪王、团队枪王
+				if(userReport.characterId == battleReport.kingCharacterId && 
+				   (battleReport.roomData.raceType == Rule.KING_OF_GUN || battleReport.roomData.raceType == Rule.GROUP_KING_OF_GUN))
+				{
+					userReport.battleAddExpRatio += 0.25;
+				}
 
-				//ACE - 除变异模式外的所有模式
-				if (userReport.characterId == battleReport.aceCharacterId) {
+				//ACE - 爆破战、无限爆破、生死爆破、刀锋战士、死亡竞赛、经典团战、娱乐团战、团队争霸、特殊战、个人、大头
+				if (userReport.characterId == battleReport.aceCharacterId &&
+					(battleReport.roomData.raceType == Rule.EXPLODE ||battleReport.roomData.raceType == Rule.RECREATION_EXPLODE ||battleReport.roomData.raceType == Rule.DEATH_EXPLODE ||
+					 battleReport.roomData.raceType == Rule.BLADE ||battleReport.roomData.raceType == Rule.DEATH_MATCH ||battleReport.roomData.raceType == Rule.GROUP ||
+					 battleReport.roomData.raceType == Rule.GROUP_RECHARGE ||battleReport.roomData.raceType == Rule.RECREATION_GROUP ||battleReport.roomData.raceType == Rule.SPECIAL_GROUP ||
+					 battleReport.roomData.raceType == Rule.PERSONAL || battleReport.roomData.raceType == Rule.BIG_HEAD))
+				{
 					userReport.battleAddExpRatio += 0.25;
 					userReport.battleAddGpRatio += 0.1;
 				}
