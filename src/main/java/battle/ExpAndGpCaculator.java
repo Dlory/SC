@@ -509,20 +509,25 @@ public class ExpAndGpCaculator
 
 		for (UserReport userReport : battleReport.userReportList)
 		{
-			userReport.heroWeaponAddExp = 0;
-			userReport.heroWeaponAddGp = 0;
-			
-			if (userReport.hasHeroWeapon)
+			if (maxAddExp < userReport.weaponSelfAddExp)
 			{
 				userReport.heroWeaponAddExpRatio = userReport.weaponSelfAddExp;
-				userReport.heroWeaponAddExp += Math.round(userReport.baseExp * userReport.weaponSelfAddExp);
-				userReport.heroWeaponAddGpRatio = userReport.weaponSelfAddGp;
-				userReport.heroWeaponAddGp += Math.round(userReport.baseGp * userReport.weaponSelfAddGp);
+				userReport.heroWeaponAddExp = Math.round(userReport.baseExp * userReport.weaponSelfAddExp);
+				
 			}
 			else
 			{
 				userReport.heroWeaponAddExpRatio = userReport.weaponSelfAddExp;
 				userReport.heroWeaponAddExp = Math.round(userReport.baseExp * maxAddExp);
+			}
+			
+			if(maxAddGp < userReport.weaponSelfAddGp)
+			{
+				userReport.heroWeaponAddGpRatio = userReport.weaponSelfAddGp;
+				userReport.heroWeaponAddGp = Math.round(userReport.baseGp * userReport.weaponSelfAddGp);
+			}
+			else
+			{
 				userReport.heroWeaponAddGpRatio = maxAddGp;
 				userReport.heroWeaponAddGp = Math.round(userReport.baseGp * maxAddGp);
 			}
