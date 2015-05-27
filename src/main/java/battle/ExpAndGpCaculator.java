@@ -517,7 +517,7 @@ public class ExpAndGpCaculator
 			}
 			else
 			{
-				userReport.heroWeaponAddExpRatio = userReport.weaponSelfAddExp;
+				userReport.heroWeaponAddExpRatio = maxAddExp;
 				userReport.heroWeaponAddExp = Math.round(userReport.baseExp * maxAddExp);
 			}
 			
