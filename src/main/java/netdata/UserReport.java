@@ -1,6 +1,7 @@
 package netdata;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 
 public class UserReport implements Serializable {
@@ -33,7 +34,7 @@ public class UserReport implements Serializable {
 	public boolean primaryGpCardFlag = false;
 	public boolean advancedExpCardFlag = false;
 	public boolean advancedGpCardFlag = false;
-	public Collection<Integer> friendList = null;
+	public Collection<Long> friendList = null;
 
 	public float expDecoration;//exp饰品倍率
 	public float gpDecoration;//gp饰品倍率
@@ -44,7 +45,7 @@ public class UserReport implements Serializable {
 	public float weaponSelfAddGp = 0;
 	public float weaponOtherAddGp = 0;
 	public boolean hasHeroWeapon = false;
-	public Collection<MultiCampaignData> multiCampaigns;//N倍活动加成信息
+	public Collection<MultiCampaignData> multiCampaigns = null;//N倍活动加成信息
 
 	// 以下字段占位 房间服务器会赋值
 	public int lv = 0;
@@ -109,7 +110,11 @@ public class UserReport implements Serializable {
 		primaryGpCardFlag = userData.primaryGpCardFlag;
 		advancedExpCardFlag = userData.advancedExpCardFlag;
 		advancedGpCardFlag = userData.advancedGpCardFlag;
-		friendList = userData.friendList;
+		friendList = new ArrayList<Long>();
+		for(int id : userData.friendList)
+		{
+			friendList.add(userData.dId * 100000000L + id);
+		}
 
 		expDecoration = userData.expDecoration;
 		gpDecoration = userData.gpDecoration;
