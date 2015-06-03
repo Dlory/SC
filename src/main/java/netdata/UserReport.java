@@ -111,11 +111,13 @@ public class UserReport implements Serializable {
 		advancedExpCardFlag = userData.advancedExpCardFlag;
 		advancedGpCardFlag = userData.advancedGpCardFlag;
 		friendList = new ArrayList<Long>();
-		for(int id : userData.friendList)
+		if(userData.friendList != null)
 		{
-			friendList.add(userData.dId * 100000000L + id);
+			for(int id : userData.friendList)
+			{
+				friendList.add(userData.dId * 100000000L + id);
+			}
 		}
-
 		expDecoration = userData.expDecoration;
 		gpDecoration = userData.gpDecoration;
 		
