@@ -18,14 +18,29 @@ public class ExpAndGpCaculator
 	{
 		if (battleReport.userReportList.length > 0)
 		{
-			//在个人联赛中，战斗会将中途掉线玩家的战报传回，但这些玩家不能进行经验和GP计算
+			//在个人联赛中，战斗会将中途掉线玩家的战报传回，但这些玩家不能进行经验和GP计算，且增加的经验和GP为0
 			Vector<UserReport> vUserReport = new Vector<UserReport>();
-			for (int i = 0; i < battleReport.userReportList.length; i++)
+			for (UserReport userReport : battleReport.userReportList)
 			{
-				UserReport u = battleReport.userReportList[i];
-				if (!u.historyReport)
+				if (userReport.historyReport)
 				{
-					vUserReport.add(u);
+					userReport.baseExp = 0;
+					userReport.baseGp = 0;
+					userReport.battleAddExp = 0;
+					userReport.battleAddGp = 0;
+					userReport.heroWeaponAddExp = 0;
+					userReport.heroWeaponAddGp = 0;
+					userReport.teamAndFriendAddExp = 0;
+					userReport.primaryExpCardAddExp = 0;
+					userReport.primaryGpCardAddGp = 0;
+					userReport.advancedExpCardAddExp = 0;
+					userReport.advancedGpCardAddGp = 0;
+					userReport.decorationAddExp = 0;
+					userReport.decorationAddGp = 0;
+				}
+				else
+				{
+					vUserReport.add(userReport);
 				}
 			}
 

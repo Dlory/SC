@@ -51,9 +51,7 @@ public class UserReport implements Serializable {
 	public int lv = 0;
 	// public int title = 0; //位来表示战斗中获得的头衔
 	public int baseExp = 0; //基础经验
-	public int battleAddExp = 0; //战斗荣耀经验加成
 	public int baseGp = 0; //基础gp
-	public int battleAddGp = 0;//战斗荣耀gp加成
 	public boolean result = false;
 	
 	public int moreLianSha = 0;//最高连杀数
@@ -82,6 +80,8 @@ public class UserReport implements Serializable {
 	public int changeHeroNum = 0;//变身英雄次数
 	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
 	
+	public int battleAddExp = 0; //战斗荣耀经验加成
+	public int battleAddGp = 0;//战斗荣耀gp加成
 	public int heroWeaponAddExp = 0;//英雄武器经验加成
 	public int heroWeaponAddGp = 0;//英雄武器金币加成
 	public int teamAndFriendAddExp = 0;//战队加成
