@@ -375,7 +375,7 @@ public class ExpAndGpCaculator
 				}
 
 				//救助者 - 生死爆破、刀锋战士、死亡竞赛
-				if ((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) &&
+				if ((userReport.isNurse) &&
 					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH))
 				{
 					userReport.battleAddExpRatio += 0.1;
@@ -413,7 +413,7 @@ public class ExpAndGpCaculator
 				}
 				
 				//战地医生 - 大头争霸
-				if((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) && 
+				if((userReport.isNurse) && 
 				    battleReport.roomData.raceType == Rule.BIG_HEAD)
 				{
 					userReport.battleAddExpRatio += 0.05;
