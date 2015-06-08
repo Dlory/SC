@@ -79,6 +79,7 @@ public class UserReport implements Serializable {
 	public int maxInfectionNum = 0;//最高感染数
 	public int changeHeroNum = 0;//变身英雄次数
 	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
+	public boolean isNurse = false;//战地医生
 	
 	public int battleAddExp = 0; //战斗荣耀经验加成
 	public int battleAddGp = 0;//战斗荣耀gp加成
