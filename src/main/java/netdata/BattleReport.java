@@ -51,6 +51,15 @@ public class BattleReport implements Serializable {
 	public long maxHidePackCharacterId;
 	public long maxOpenPackCharacterId;
 
+	/**
+	 * 大头终结者
+	 */
+	public long terminatorCharacterId;
+	/**
+	 * 大头霸者
+	 */
+	public long overloadCharacterId;
+
 	public UserReport[] userReportList;
 
 	public long ace2CharacterId;// ace第二名

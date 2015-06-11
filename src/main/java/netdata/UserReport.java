@@ -1,6 +1,8 @@
 package netdata;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class UserReport implements Serializable {
 	/**
@@ -27,15 +29,31 @@ public class UserReport implements Serializable {
 	public int[] bagUsed = null; // 每个背包的使用时间 index from 0
 	public float lianShaAdded = 0; // 连杀加成
 	public int aliveNum = 0; // 总存活次数
-//	public RankUserBean rankBean = null;
+	
+	public boolean primaryExpCardFlag = false;
+	public boolean primaryGpCardFlag = false;
+	public boolean advancedExpCardFlag = false;
+	public boolean advancedGpCardFlag = false;
+	public Collection<Long> friendList = null;
+
+	public float expDecoration;//exp饰品倍率
+	public float gpDecoration;//gp饰品倍率
+	
+	//武器经验和GP加成参数
+	public float weaponSelfAddExp = 0;
+	public float weaponOtherAddExp = 0;
+	public float weaponSelfAddGp = 0;
+	public float weaponOtherAddGp = 0;
+	public boolean hasHeroWeapon = false;
+	public Collection<MultiCampaignData> multiCampaigns = null;//N倍活动加成信息
 
 	// 以下字段占位 房间服务器会赋值
 	public int lv = 0;
-	// public int title = 0; // 位来表示战斗中获得的头衔
-	public long baseExp = 0; // 基础经验
-	public long addExp = 0; // 经验加成
-	public int baseGp = 0; // 基础gp
-	public int addGp = 0;//gp加成
+	// public int title = 0; //位来表示战斗中获得的头衔
+	public int baseExp = 0; //基础经验
+	public int battleAddExp = 0; //战斗荣耀经验加成
+	public int baseGp = 0; //基础gp
+	public int battleAddGp = 0;//战斗荣耀gp加成
 	public boolean result = false;
 	
 	public int moreLianSha = 0;//最高连杀数
@@ -63,4 +81,51 @@ public class UserReport implements Serializable {
 	public int maxInfectionNum = 0;//最高感染数
 	public int changeHeroNum = 0;//变身英雄次数
 	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
+	
+	public int heroWeaponAddExp = 0;//英雄武器经验加成
+	public int heroWeaponAddGp = 0;//英雄武器金币加成
+	public int teamAndFriendAddExp = 0;//战队加成
+	public int primaryExpCardAddExp = 0;//初级经验卡经验加成
+	public int primaryGpCardAddGp = 0;//初级GP卡经验加成
+	public int advancedExpCardAddExp = 0;//高级经验卡经验加成
+	public int advancedGpCardAddGp = 0;//高级GP卡GP加成
+	public int decorationAddExp = 0;//饰品经验加成
+	public int decorationAddGp = 0;//饰品GP加成
+	
+	public float battleAddExpRatio = 0; //战斗荣耀经验加成比
+	public float battleAddGpRatio = 0;//战斗荣耀gp加成比
+	public float heroWeaponAddExpRatio = 0;//英雄武器经验加成比
+	public float heroWeaponAddGpRatio = 0;//英雄武器金币加成比
+	public float teamAndFriendAddExpRatio = 0;//战队加成比
+	public float primaryExpCardAddExpRatio = 0;//初级经验卡经验加成比
+	public float primaryGpCardAddGpRatio = 0;//初级GP卡经验加成比
+	public float advancedExpCardAddExpRatio = 0;//高级经验卡经验加成比
+	public float advancedGpCardAddGpRatio = 0;//高级GP卡GP加成比
+	public float decorationAddExpRatio = 0;//饰品经验加成比
+	public float decorationAddGpRatio = 0;//饰品GP加成比
+	
+	public void copyFromUserData(UserData userData)
+	{
+		primaryExpCardFlag = userData.primaryExpCardFlag;
+		primaryGpCardFlag = userData.primaryGpCardFlag;
+		advancedExpCardFlag = userData.advancedExpCardFlag;
+		advancedGpCardFlag = userData.advancedGpCardFlag;
+		friendList = new ArrayList<Long>();
+		for(int id : userData.friendList)
+		{
+			friendList.add(userData.dId * 100000000L + id);
+		}
+
+		expDecoration = userData.expDecoration;
+		gpDecoration = userData.gpDecoration;
+		
+		
+		weaponSelfAddExp = userData.weaponSelfAddExp;
+		weaponOtherAddExp = userData.weaponOtherAddExp;
+		weaponSelfAddGp = userData.weaponSelfAddGp;
+		weaponOtherAddGp = userData.weaponOtherAddGp;
+		hasHeroWeapon = userData.hasHeroWeapon;
+		multiCampaigns = userData.multiCampaigns;
+
+	}
 }
