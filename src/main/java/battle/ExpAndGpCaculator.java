@@ -376,7 +376,7 @@ public class ExpAndGpCaculator
 
 				//救助者 - 生死爆破、刀锋战士、死亡竞赛
 				if ((userReport.isNurse) &&
-					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH))
+					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.DEATH_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH))
 				{
 					userReport.battleAddExpRatio += 0.1;
 				}
