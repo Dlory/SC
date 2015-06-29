@@ -42,11 +42,6 @@ public class BattleReport implements Serializable {
 	 * 枪王
 	 */
 	public long kingCharacterId;
-	/**
-	 * 奶妈
-	 */
-	public long ctNurseCharacterId;
-	public long tNurseCharacterId;
 	
 	public long maxHidePackCharacterId;
 	public long maxOpenPackCharacterId;
@@ -67,4 +62,12 @@ public class BattleReport implements Serializable {
 	
 	public TreeMap<Integer/*team*/,TeamData> battleTeamList = new  TreeMap<Integer/*team*/,TeamData>();//对战战队
 	public TeamData winbattleTeam = null;//胜利一方的战队ID
+	/**
+	 * 最佳杀敌武器名字
+	 */
+	public String weaponBestKillName;
+	/**
+	 * 最佳杀敌武器 击杀数量
+	 */
+	public int weaponBestKillNum;
 }

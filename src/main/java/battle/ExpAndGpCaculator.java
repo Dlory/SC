@@ -14,6 +14,66 @@ public class ExpAndGpCaculator
 	private static final float ADVANCED_EXP_CARD_ADDITION = 0.6f;   //高级经验卡加成
 	private static final float ADVANCED_GP_CARD_ADDITION = 0.6f;         //高级GP卡加成
 
+	public static void calculate(BattleReport battleReport)
+	{
+		if (battleReport.userReportList.length > 0)
+		{
+			//在个人联赛中，战斗会将中途掉线玩家的战报传回，但这些玩家不能进行经验和GP计算，且增加的经验和GP为0
+			Vector<UserReport> vUserReport = new Vector<UserReport>();
+			for (UserReport userReport : battleReport.userReportList)
+			{
+				if (userReport.historyReport)
+				{
+					userReport.baseExp = 0;
+					userReport.baseGp = 0;
+					userReport.battleAddExp = 0;
+					userReport.battleAddGp = 0;
+					userReport.heroWeaponAddExp = 0;
+					userReport.heroWeaponAddGp = 0;
+					userReport.teamAndFriendAddExp = 0;
+					userReport.primaryExpCardAddExp = 0;
+					userReport.primaryGpCardAddGp = 0;
+					userReport.advancedExpCardAddExp = 0;
+					userReport.advancedGpCardAddGp = 0;
+					userReport.decorationAddExp = 0;
+					userReport.decorationAddGp = 0;
+				}
+				else
+				{
+					vUserReport.add(userReport);
+				}
+			}
+
+			if (vUserReport.size() > 0)
+			{
+				UserReport[] originUserReportList = battleReport.userReportList;
+				//重新赋值战报
+				battleReport.userReportList = vUserReport.toArray(new UserReport[vUserReport.size()]);
+
+				//计算基础GP、EXP
+				for (int i = 0; i < battleReport.userReportList.length; i++)
+				{
+					UserReport u = battleReport.userReportList[i];
+					u.baseExp = getBaseExp(battleReport, u);
+					u.baseGp = getBaseGp(battleReport, u);
+				}
+
+				//计算战斗荣耀加成
+				addGpOrExpForAward(battleReport);
+				//计算多倍活动加成
+				addGpOrExpForMultiCampaign(battleReport);
+				//计算道具加成
+				addExtraGpOrExpForItem(battleReport);
+				//计算好友和队友加成
+				addExpForTeamAndFriend(battleReport);
+				//计算武器加成
+				addGpAndExpForWeapon(battleReport);
+				
+				battleReport.userReportList = originUserReportList;
+			}
+		}
+	}
+	
 	public static int getBaseExp(BattleReport br, UserReport ur)
 	{
 		double baseExp = ur.duration / 60 * 20;
@@ -272,53 +332,6 @@ public class ExpAndGpCaculator
 		return (int)Math.round(baseGp);
 	}
 
-	public static void calculate(BattleReport battleReport)
-	{
-		if (battleReport.userReportList.length > 0)
-		{
-			//过滤掉掉线的用户
-			Vector<UserReport> vUserReport = new Vector<UserReport>();
-			for (int i = 0; i < battleReport.userReportList.length; i++)
-			{
-				UserReport u = battleReport.userReportList[i];
-				if (!u.historyReport)
-				{
-					vUserReport.add(u);
-				}
-			}
-
-			if (vUserReport.size() > 0)
-			{
-				UserReport[] newUserReport = new UserReport[vUserReport.size()];
-				for (int i = 0; i < vUserReport.size(); i++)
-				{
-					newUserReport[i] = vUserReport.get(i);
-				}
-
-				//重新赋值战报
-				battleReport.userReportList = newUserReport;
-
-				//计算基础GP、EXP
-				for (int i = 0; i < battleReport.userReportList.length; i++)
-				{
-					UserReport u = battleReport.userReportList[i];
-					u.baseExp = getBaseExp(battleReport, u);
-					u.baseGp = getBaseGp(battleReport, u);
-				}
-
-				//计算战斗荣耀加成
-				addGpOrExpForAward(battleReport);
-				//计算多倍活动加成
-				addGpOrExpForMultiCampaign(battleReport);
-				//计算道具加成
-				addExtraGpOrExpForItem(battleReport);
-				//计算好友和队友加成
-				addExpForTeamAndFriend(battleReport);
-				//计算武器加成
-				addGpAndExpForWeapon(battleReport);
-			}
-		}
-	}
 
 	private static void addGpOrExpForAward(BattleReport battleReport)
 	{
@@ -362,8 +375,8 @@ public class ExpAndGpCaculator
 				}
 
 				//救助者 - 生死爆破、刀锋战士、死亡竞赛
-				if ((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) &&
-					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.RECREATION_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH))
+				if ((userReport.isNurse) &&
+					(battleReport.roomData.raceType == Rule.BLADE || battleReport.roomData.raceType == Rule.DEATH_EXPLODE || battleReport.roomData.raceType == Rule.DEATH_MATCH))
 				{
 					userReport.battleAddExpRatio += 0.1;
 				}
@@ -400,7 +413,7 @@ public class ExpAndGpCaculator
 				}
 				
 				//战地医生 - 大头争霸
-				if((userReport.characterId == battleReport.ctNurseCharacterId || userReport.characterId == battleReport.tNurseCharacterId) && 
+				if((userReport.isNurse) && 
 				    battleReport.roomData.raceType == Rule.BIG_HEAD)
 				{
 					userReport.battleAddExpRatio += 0.05;

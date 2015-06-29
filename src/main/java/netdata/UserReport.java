@@ -51,9 +51,7 @@ public class UserReport implements Serializable {
 	public int lv = 0;
 	// public int title = 0; //位来表示战斗中获得的头衔
 	public int baseExp = 0; //基础经验
-	public int battleAddExp = 0; //战斗荣耀经验加成
 	public int baseGp = 0; //基础gp
-	public int battleAddGp = 0;//战斗荣耀gp加成
 	public boolean result = false;
 	
 	public int moreLianSha = 0;//最高连杀数
@@ -63,7 +61,7 @@ public class UserReport implements Serializable {
 	public int hidePackSucNum = 0;//埋包成功次数
 	public int openPackSucNum = 0;//拆包成功次数
 	public int roundNum = 0;//爆破模式的回合数
-	public double personalPerf = 0;// 个人表现
+	public double personalPerf = 0;// 个人联赛表现分
 	public boolean historyReport = false;
 	public int teamId = 0;//战队id
 	public int whiteCrystalNum = 0;//获得白水晶数量
@@ -81,7 +79,11 @@ public class UserReport implements Serializable {
 	public int maxInfectionNum = 0;//最高感染数
 	public int changeHeroNum = 0;//变身英雄次数
 	public boolean[] sectionBestKill = null;//枪王赛各阶段最佳标志
+	public boolean isNurse = false;//战地医生
+	public int treatment = 0;//治疗量
 	
+	public int battleAddExp = 0; //战斗荣耀经验加成
+	public int battleAddGp = 0;//战斗荣耀gp加成
 	public int heroWeaponAddExp = 0;//英雄武器经验加成
 	public int heroWeaponAddGp = 0;//英雄武器金币加成
 	public int teamAndFriendAddExp = 0;//战队加成
@@ -111,11 +113,13 @@ public class UserReport implements Serializable {
 		advancedExpCardFlag = userData.advancedExpCardFlag;
 		advancedGpCardFlag = userData.advancedGpCardFlag;
 		friendList = new ArrayList<Long>();
-		for(int id : userData.friendList)
+		if(userData.friendList != null)
 		{
-			friendList.add(userData.dId * 100000000L + id);
+			for(int id : userData.friendList)
+			{
+				friendList.add(userData.dId * 100000000L + id);
+			}
 		}
-
 		expDecoration = userData.expDecoration;
 		gpDecoration = userData.gpDecoration;
 		
