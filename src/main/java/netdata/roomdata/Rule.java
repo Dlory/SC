@@ -79,6 +79,10 @@ public class Rule {
 	 */
 	public static final int BIG_HEAD = 19;
 	/**
+	 * 编译觉醒
+	 */
+	public static final int BIO_AWAKE = 20;
+	/**
 	 * 属于生化模式
 	 */
 	public static boolean isBioRule(int raceType)
@@ -88,6 +92,7 @@ public class Rule {
 				|| raceType == FINAL_BIOCHEMICAL
 				|| raceType == SUPER_BIOCHEMICAL
 				|| raceType == GHOST_BIOCHEMICAL
+				|| raceType == BIO_AWAKE
 				)
 		{
 			return true;
